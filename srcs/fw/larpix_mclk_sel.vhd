@@ -116,7 +116,9 @@ architecture arch_imp of larpix_mclk_sel is
   signal locked_mclk_meta : std_logic_vector(1 downto 0);
   signal locked_mclk_out : std_logic_vector(1 downto 0);
   
-  signal mclk2x : std_logic := '0';
+  -- signal mclk2x : std_logic := '0';
+  signal mclk10x : std_logic := '0';
+  signal mclk10x_counter : integer := 10;
   signal mclk_out : std_logic := '0';
 
   attribute ASYNC_REG of clk_sel_mclk0_meta: signal is "TRUE";
@@ -206,8 +208,8 @@ begin
 
   -- Clock switch
   bufgmux_mclk : BUFGMUX port map(
---    O => mclk2x,
-    O => mclk_out,
+    O => mclk10x,
+    -- O => mclk_out,
     I0 => mclk0,
     I1 => mclk1,
     S => clk_sel_mclk0
@@ -223,15 +225,20 @@ begin
       clk_sel_mclk0 <= clk_sel_mclk0_meta;
     end if;
   end process;
---  process (mclk2x, RSTN) is
---  begin
---    if (RSTN = '0') then
---      mclk_out <= '0';
+  process (mclk10x, RSTN) is
+  begin
+    if (RSTN = '0') then
+      mclk_out <= '0';
+      mclk10x_counter <= 4;
       
---    elsif (rising_edge(mclk2x)) then
---      mclk_out <= not mclk_out;
---    end if;
---  end process;
+    elsif (rising_edge(mclk10x)) then
+      mclk10x_counter <= mclk10x_counter - 1;
+      if (mclk10x_counter = 0) then
+        mclk_out <= not mclk_out;
+        mclk10x_counter <= 4;
+      end if;
+    end if;
+  end process;
       
   -- Synchronize output signals
   aclk_sync : process (ACLK, RSTN) is
