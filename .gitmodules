@@ -1,0 +1,3 @@
+[submodule "srcs/ip/timing-board-firmware"]
+	path = srcs/ip/timing-board-firmware
+	url = https://gitlab.cern.ch/dune-daq/timing/timing-board-firmware.git
