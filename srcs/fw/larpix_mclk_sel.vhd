@@ -115,8 +115,12 @@ architecture arch_imp of larpix_mclk_sel is
   signal clk_valid_mclk_out : std_logic;
   signal locked_mclk_meta : std_logic_vector(1 downto 0);
   signal locked_mclk_out : std_logic_vector(1 downto 0);
-  
-  signal mclk2x : std_logic := '0';
+
+  constant N : integer := 4; -- undersample factor for mclk_out relative to
+                             -- C_MCLK_PERIOD, generated period is equal to
+                             -- C_MCLK_PERIOD * 2 * (N+1)
+  signal mclkNx : std_logic := '0';
+  signal mclkNx_counter : integer := N;
   signal mclk_out : std_logic := '0';
 
   attribute ASYNC_REG of clk_sel_mclk0_meta: signal is "TRUE";
@@ -206,8 +210,8 @@ begin
 
   -- Clock switch
   bufgmux_mclk : BUFGMUX port map(
---    O => mclk2x,
-    O => mclk_out,
+    O => mclkNx,
+    --O => mclk_out,
     I0 => mclk0,
     I1 => mclk1,
     S => clk_sel_mclk0
@@ -223,15 +227,19 @@ begin
       clk_sel_mclk0 <= clk_sel_mclk0_meta;
     end if;
   end process;
---  process (mclk2x, RSTN) is
---  begin
---    if (RSTN = '0') then
---      mclk_out <= '0';
+  process (mclkNx, RSTN) is
+  begin
+    if (RSTN = '0') then
+      mclk_out <= '0';
+      mclkNx_counter <= N;
       
---    elsif (rising_edge(mclk2x)) then
---      mclk_out <= not mclk_out;
---    end if;
---  end process;
+    elsif (rising_edge(mclkNx)) then
+      mclkNx_counter <= mclkNx_counter - 1;
+      if (mclkNx_counter = 0) then
+        mclk_out <= not mclk_out;
+      end if;
+    end if;
+  end process;
       
   -- Synchronize output signals
   aclk_sync : process (ACLK, RSTN) is
