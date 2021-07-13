@@ -116,7 +116,7 @@ architecture arch_imp of larpix_mclk_sel is
   signal locked_mclk_meta : std_logic_vector(1 downto 0);
   signal locked_mclk_out : std_logic_vector(1 downto 0);
 
-  constant N : integer := 4; -- undersample factor for mclk_out relative to
+  constant N : integer := 0; -- undersample factor for mclk_out relative to
                              -- C_MCLK_PERIOD, generated period is equal to
                              -- C_MCLK_PERIOD * 2 * (N+1)
   signal mclkNx : std_logic := '0';
