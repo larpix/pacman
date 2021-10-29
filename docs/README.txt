@@ -51,12 +51,15 @@ $source /tools/Xilinx/Vivado/2018.3/settings64.sh
 
 # create the Xilinx project (xpr) from tcl file:
 $vivado -mode batch -source tcl/recreate_xpr.tcl
+ Note:
+  -To recreate project with ProtoDune-SP Time(pdts) System IP use recreate_pdts.tcl
+  -On first Vivado run of xpr file, Vivado gives errors on default register values in axi_lite_reg_space IP. To get rid of these errors , the registers need to be manually set these to 0 in IP Integrator GUI (Open axi_lite_reg_space block diagram)
 
 # sythesize, implement, write bitstream, and export hardware:
 $vivado -mode batch -source tcl/build_xpr.tcl
 
 A successful build produces the file:
-products/zsys_wrapper.hdf
+products/zsys_wrapper.hdf (Vivado 2020.2 produces file zsys_wrapper.xsa)
 
 # on another terminal, connect to USB serial device with TE0720 connected:
 $busybox microcom -s 115200 /dev/ttyUSB1

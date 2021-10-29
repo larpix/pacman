@@ -43,7 +43,7 @@ update_compile_order -fileset sources_1
 #file copy -force ./pacman-fw/pacman-fw.runs/impl_1/zsys_wrapper.sysdef ./products/zsys_wrapper.hdf
 
 
-#PRIYA
+#PRIYA - Following commands for Vivado 2020.2
 write_hw_platform -fixed -include_bit -force -file /home/psundara/DUNE/GIT/PACMAN_092821/pacman/pacman-fw/hw_platform/zsys_wrapper.xsa
 file copy -force ./pacman-fw/pacman-fw.runs/impl_1/zsys_wrapper.bit ./products/zsys_wrapper.bit
 file copy -force ./pacman-fw/hw_platform/zsys_wrapper.xsa ./products/zsys_wrapper.hdf
