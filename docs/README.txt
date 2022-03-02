@@ -51,7 +51,11 @@ $source /tools/Xilinx/Vivado/2018.3/settings64.sh
 
 # create the Xilinx project (xpr) from tcl file:
 $vivado -mode batch -source tcl/recreate_xpr.tcl
+# Manual updates to Block diagram required for:
+#RTL IP constants larpix_trig/axi_lite_reg_space/axi_lite_reg_space_0
+#Verify if constants match RTL definitions
 
+# !!!build_xpr.tcl does not work!!! After fixing block diagram IP constants, generate bitstream in Vivado GUI
 # sythesize, implement, write bitstream, and export hardware:
 $vivado -mode batch -source tcl/build_xpr.tcl
 
