@@ -10,13 +10,11 @@ Supporting notes are in:
 	strategies for getting starting with limited network and hardware
 
 Conventions:
- - OS is latest version of Ubuntu 16.04 LTS
- - Xilinx tools are all 2018.3
+ - OS is latest version of Ubuntu 18.04 LTS
+ - Xilinx tools are all 2020.2
  - Unless explicitly stated otherwise, all commands are issued from
    the root directory of the git repository, and most will not work
    from elsewhere.
-- Xilinx is installed at /tools/Xilinx/
-   (if not, just change path below as needed.)
  - Shell commands beging with $.
 
 Xilinx Software and Git:
@@ -36,24 +34,25 @@ with the Xilinx Software Commandline Tool (XSCT) from tcl scripts.
 
 The linux operating system uses peta-linux command line tools.
 
-The installation of all of these tools for Ubuntu 16.04 is detailed in tools/install
+The installation of all of these tools for Ubuntu 18.04 is detailed in tools/install
 
 --------------------
 1) Getting started:
 --------------------
 
 # clone and enter the git repository
-$git clone https://github.com/mulhearn/pacman.git
+$git clone https://github.com/larpix/pacman.git
 $cd pacman
 
 # setup vivado:
-$source /tools/Xilinx/Vivado/2018.3/settings64.sh
+$source /<Path_to_Xilinx_Installation>/Vivado/2020.2/settings64.sh
 
 # create the Xilinx project (xpr) from tcl file:
 $vivado -mode batch -source tcl/recreate_xpr.tcl
+#Open vivado GUI and run Reports->Report IP Status and Upgrade FIFO IP
 # Manual updates to Block diagram required for:
 #RTL IP constants larpix_trig/axi_lite_reg_space/axi_lite_reg_space_0
-#Verify if constants match RTL definitions
+#Verify if constants match RTL definitions DO THIS BEFORE SYNTH
 
 # !!!build_xpr.tcl does not work!!! After fixing block diagram IP constants, generate bitstream in Vivado GUI
 # sythesize, implement, write bitstream, and export hardware:
