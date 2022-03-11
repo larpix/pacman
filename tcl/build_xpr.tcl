@@ -31,6 +31,8 @@ set_property source_mgmt_mode All [current_project]
 update_compile_order -fileset sources_1
 
 update_compile_order -fileset sources_1
+#FIFO IP needs upgrade for Vivado 2020.2
+upgrade_ip [get_ips]
 reset_run $synth_run
 reset_run $impl_run
 launch_runs $synth_run -jobs $jobs
@@ -40,5 +42,9 @@ wait_on_run $impl_run
 launch_runs $impl_run -to_step write_bitstream -jobs $jobs
 wait_on_run $impl_run
 update_compile_order -fileset sources_1
-file copy -force ./pacman-fw/pacman-fw.runs/impl_1/zsys_wrapper.sysdef ./products/zsys_wrapper.hdf
+
+write_hw_platform -fixed -include_bit -force -file ./pacman-fw/hw_platform/zsys_wrapper.xsa
 file copy -force ./pacman-fw/pacman-fw.runs/impl_1/zsys_wrapper.bit ./products/zsys_wrapper.bit
+file copy -force ./pacman-fw/hw_platform/zsys_wrapper.xsa ./products/zsys_wrapper.hdf
+
+
