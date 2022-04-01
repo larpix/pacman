@@ -54,9 +54,8 @@ $vivado -mode batch -source tcl/recreate_xpr.tcl
 #RTL IP constants larpix_trig/axi_lite_reg_space/axi_lite_reg_space_0
 #Verify if constants match RTL definitions DO THIS BEFORE SYNTH
 
-# !!!build_xpr.tcl does not work!!! After fixing block diagram IP constants, generate bitstream in Vivado GUI
-# sythesize, implement, write bitstream, and export hardware:
-$vivado -mode batch -source tcl/build_xpr.tcl
+# !!!build_xpr.tcl does not work!!! After fixing block diagram IP constants (larpix_clk, axi_reg_lite_space gave us issues), generate bitstream in Vivado GUI
+# sythesize, implement, write bitstream, and export hardware
 
 A successful build produces the file:
 products/zsys_wrapper.hdf
@@ -109,15 +108,15 @@ products/zynq_fsbl.elf
 -----------------------------------------
 
 In a new shell, setup petalinux:
-$source /tools/Xilinx/petalinux/2018.3/settings.sh
+$source /tools/Xilinx/petalinux/2020.2/settings.sh
 (Petalinux is very fussy about the shell.  Make sure you are using
 bash, and try hiding e.g. your .bash_aliases file if you having trouble.)
 
 Build Peta-Linux by running the build script:
-$chmod ugo+x ./petalinux/build.sh
-$./petalinux/build.sh
+$chmod ugo+x ./petalinux_regen/new_build.sh
+$./petalinux_regen/new_build.sh
 
-You can add local files to the rootfs by adding them to local/root.  For example, I include:
+You can add local files to the rootfs by adding them to local/root.  For example, you could include:
 petalinux/local/root/dropbear/dropbear_rsa_host_key
 petalinux/local/root/shadow
 so that the host_key doesn't change and to set the root password to something not in the git.
@@ -126,7 +125,7 @@ To install, format an SD card:
   ~ 1 GB - FAT - label: BOOT
   remainder - Linux - label: rootfs
 
-From the petalinux/images/linux directory copy BOOT.bin and image.ub to the boot partition
+From the petalinux/images/linux directory copy BOOT.bin, boot.scr and image.ub, and  to the boot partition
 
 Untar the rootfs tarball onto the rootfs partition
 
