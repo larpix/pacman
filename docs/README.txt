@@ -10,13 +10,11 @@ Supporting notes are in:
 	strategies for getting starting with limited network and hardware
 
 Conventions:
- - OS is latest version of Ubuntu 16.04 LTS
- - Xilinx tools are all 2018.3
+ - OS is latest version of Ubuntu 18.04 LTS
+ - Xilinx tools are all 2020.2
  - Unless explicitly stated otherwise, all commands are issued from
    the root directory of the git repository, and most will not work
    from elsewhere.
-- Xilinx is installed at /tools/Xilinx/
-   (if not, just change path below as needed.)
  - Shell commands beging with $.
 
 Xilinx Software and Git:
@@ -36,26 +34,30 @@ with the Xilinx Software Commandline Tool (XSCT) from tcl scripts.
 
 The linux operating system uses peta-linux command line tools.
 
-The installation of all of these tools for Ubuntu 16.04 is detailed in tools/install
+The installation of all of these tools for Ubuntu 18.04 is detailed in tools/install
 
 --------------------
 1) Getting started:
 --------------------
 
 # clone and enter the git repository
-$git clone https://github.com/mulhearn/pacman.git
+$git clone https://github.com/larpix/pacman.git
 $cd pacman
 
 # setup vivado:
-$source /tools/Xilinx/Vivado/2018.3/settings64.sh
+$source /<Path_to_Xilinx_Installation>/Vivado/2020.2/settings64.sh
 
 # create the Xilinx project (xpr) from tcl file:
 $vivado -mode batch -source tcl/recreate_xpr.tcl
- Note:
-  -To recreate project with ProtoDune-SP Time(pdts) System IP use recreate_pdts.tcl
-  -On first Vivado run of xpr file, Vivado gives errors on default register values in axi_lite_reg_space IP. To get rid of these errors , the registers need to be manually set these to 0 in IP Integrator GUI (Open axi_lite_reg_space block diagram)
 
-# sythesize, implement, write bitstream, and export hardware:
+#Open vivado GUI and run Reports->Report IP Status and Upgrade FIFO IP
+# Manual updates to Block diagram required for:
+#RTL IP constants larpix_trig/axi_lite_reg_space/axi_lite_reg_space_0
+#Verify if constants match RTL definitions DO THIS BEFORE SYNTH
+>>>>>>> r/oldtimestamp_rev4
+
+# !!!build_xpr.tcl does not work!!! After fixing block diagram IP constants (larpix_clk, axi_reg_lite_space gave us issues), generate bitstream in Vivado GUI
+# sythesize, implement, write bitstream, and export hardware
 $vivado -mode batch -source tcl/build_xpr.tcl
 
 A successful build produces the file:
@@ -109,15 +111,15 @@ products/zynq_fsbl.elf
 -----------------------------------------
 
 In a new shell, setup petalinux:
-$source /tools/Xilinx/petalinux/2018.3/settings.sh
+$source /tools/Xilinx/petalinux/2020.2/settings.sh
 (Petalinux is very fussy about the shell.  Make sure you are using
 bash, and try hiding e.g. your .bash_aliases file if you having trouble.)
 
 Build Peta-Linux by running the build script:
-$chmod ugo+x ./petalinux/build.sh
-$./petalinux/build.sh
+$chmod ugo+x ./petalinux_regen/new_build.sh
+$./petalinux_regen/new_build.sh
 
-You can add local files to the rootfs by adding them to local/root.  For example, I include:
+You can add local files to the rootfs by adding them to local/root.  For example, you could include:
 petalinux/local/root/dropbear/dropbear_rsa_host_key
 petalinux/local/root/shadow
 so that the host_key doesn't change and to set the root password to something not in the git.
@@ -126,7 +128,7 @@ To install, format an SD card:
   ~ 1 GB - FAT - label: BOOT
   remainder - Linux - label: rootfs
 
-From the petalinux/images/linux directory copy BOOT.bin and image.ub to the boot partition
+From the petalinux/images/linux directory copy BOOT.bin, boot.scr and image.ub, and  to the boot partition
 
 Untar the rootfs tarball onto the rootfs partition
 
