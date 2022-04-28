@@ -1,0 +1,6 @@
+the_ROM_image:
+{
+    [bootloader]../armin_regen/trenz_fsbl.elf
+    ../oldtimerev4/zsys_wrapper.bit
+    images/linux/u-boot.elf
+}
