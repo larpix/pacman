@@ -45,6 +45,6 @@ update_compile_order -fileset sources_1
 
 write_hw_platform -fixed -include_bit -force -file ./pacman-oldtimerev4-fw/hw_platform/zsys_wrapper.xsa
 file copy -force ./pacman-oldtimerev4-fw/pacman-oldtimerev4-fw.runs/impl_1/zsys_wrapper.bit ./products-oldtimerev4/zsys_wrapper.bit
-file copy -force ./pacman-oldtimerev4-fw/hw_platform/zsys_wrapper.xsa ./products-oldtimerev4/zsys_wrapper.hdf
+file copy -force ./pacman-oldtimerev4-fw/hw_platform/zsys_wrapper.xsa ./products-oldtimerev4/.
 
 

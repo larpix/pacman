@@ -115,6 +115,9 @@ set_property IOSTANDARD LVCMOS33 [get_ports {TRIG[3]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {TRIG[2]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {TRIG[1]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {TRIG[0]}]
+
+
+
 set_property IOSTANDARD LVCMOS33 [get_ports TRIG1_IN]
 set_property IOSTANDARD LVCMOS33 [get_ports HW_SYNC_TRIG]
 set_property IOSTANDARD LVCMOS33 [get_ports UART_TX_BUSY]
@@ -186,7 +189,6 @@ set_property PACKAGE_PIN AB6 [get_ports {MOSI_0[28]}]
 set_property PACKAGE_PIN AB7 [get_ports {MOSI_0[29]}]
 set_property PACKAGE_PIN U4 [get_ports {MOSI_0[30]}]
 set_property PACKAGE_PIN T4 [get_ports {MOSI_0[31]}]
-set_property PACKAGE_PIN D18 [get_ports RESETN]
 set_property PACKAGE_PIN G21 [get_ports {TILE_EN[0]}]
 set_property PACKAGE_PIN P18 [get_ports {TILE_EN[1]}]
 set_property PACKAGE_PIN P17 [get_ports {TILE_EN[2]}]
@@ -227,3 +229,17 @@ set_property PACKAGE_PIN R19 [get_ports UART_TX_BUSY]
 #set_property PACKAGE_PIN AB21 [get_ports sfp_los]
 #set_property PACKAGE_PIN W20 [get_ports {sfp_tx_p[0]}]
 #set_property PACKAGE_PIN W16 [get_ports {cdr_data_clk_p[0]}]
+
+set_property IOSTANDARD DIFF_HSTL_II_18 [get_ports TRIG_P]
+#set_property PACKAGE_PIN D18 [get_ports TRIG_P[0]]
+#set_property PACKAGE_PIN D22 [get_ports TRIG_P[1]]
+#set_property PACKAGE_PIN C15 [get_ports TRIG_P[2]]
+#set_property PACKAGE_PIN E19 [get_ports TRIG_P[3]]
+#set_property PACKAGE_PIN B19 [get_ports TRIG_P[4]]
+#set_property PACKAGE_PIN F18 [get_ports TRIG_P[5]]
+#set_property PACKAGE_PIN F16 [get_ports TRIG_P[6]]
+#set_property PACKAGE_PIN A21 [get_ports TRIG_P[7]]
+
+
+
+set_property PACKAGE_PIN D18 [get_ports RESETN]
