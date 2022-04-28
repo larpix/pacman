@@ -113,9 +113,27 @@ $source /tools/Xilinx/petalinux/2020.2/settings.sh
 (Petalinux is very fussy about the shell.  Make sure you are using
 bash, and try hiding e.g. your .bash_aliases file if you having trouble.)
 
-Build Peta-Linux by running the build script:
-$chmod ugo+x ./petalinux_regen/new_build.sh
-$./petalinux_regen/new_build.sh
+Build Petalinux on the command line:
+You can start from the trenz reference design ( https://wiki.trenz-electronic.de/display/PD/TE0720+Test+Board#TE0720TestBoard-SoftwareDesign-PetaLinux) or make your own project with:
+
+$ petalinux-create -t project -n <petalinux_project_name> --template zynq
+
+Whatever you decide, go inside the petalinux project directory and:
+$ petalinux-config --get-hw-description /path/to/xsa/directory # not the file, its directory!!!
+
+If you created your project from scratch make sure your configuration in the GUI matches the changes specified in the reference design website.
+
+You can then:
+$ petalinux-config #you can just exit
+$ petalinux-config -c kernel # maybe turn on drivers, but should be ok left alone
+
+Copy petalinux_regen/system_user.dtsi to ./project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi
+
+Finally:
+$ petalinux-build
+$ petalinux-package --boot --force --bif petalinux_regen/boot.bif
+
+This generates image.ub, BOOT.BIN, boot.scr and the rootfs tarball 
 
 You can add local files to the rootfs by adding them to local/root.  For example, you could include:
 petalinux/local/root/dropbear/dropbear_rsa_host_key
@@ -126,13 +144,17 @@ To install, format an SD card:
   ~ 1 GB - FAT - label: BOOT
   remainder - Linux - label: rootfs
 
-From the petalinux/images/linux directory copy BOOT.bin, boot.scr and image.ub, and  to the boot partition
-
 Untar the rootfs tarball onto the rootfs partition
+Put image.ub, BOOT.BIN, boot.scr in the BOOT partition
 
+*** For PACMAN rev4 ***
+Current boards do not have an SD port, but you can quickly test a bit file with a flash. Making sure you turn off SD0 controller in your Vivado project, login to your pacman rev4 board through JTAG and connect it to your network through Ethernet. Set a static IP for your board (we also had to register MAC address with IT due to our institution's network restrictions, so your mileage may vary)
 
-If you just want to update the firmware, you can just do:
-petalinux-package --boot --force --fsbl ../products/zynq_fsbl.elf --fpga images/linux/system.bit --u-boot
+From your PC,
+$ scp BOOT.BIN root@<BOARD_IP> /tmp
+
+From the PACMAN prompt,
+$ root@pacmanXX:~# flashcp -v BOOT.BIN /dev/mtd0
 
 --------------------------------------------------------------
 5) Update the Xilinx project from an updated TCL project file:
