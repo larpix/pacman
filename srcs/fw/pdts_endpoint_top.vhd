@@ -7,11 +7,11 @@ use work.pdts_defs.all;
 
 entity pdts_endpoint_top is
 	generic(
-	--	SCLK_FREQ: real := 50.0; -- Frequency (MHz) of the supplied sclk
+		--SCLK_FREQ: real := 100.0; -- Frequency (MHz) of the supplied sclk
 		EN_TX: boolean := false;
-		SIM: boolean := false;
-		NEED_ADJUST: boolean := true;
-		NEED_TSTAMP: boolean := true
+		SIM: boolean := false
+		--NEED_ADJUST: boolean := true;
+		--NEED_TSTAMP: boolean := true
 	);
 	port(
 		sclk: in std_logic; -- Free-running system clock
@@ -36,6 +36,7 @@ entity pdts_endpoint_top is
                 tsync_in: in std_logic_vector(9 downto 0); -- Tx sync command input
                 tsync_out: out std_logic_vector(1 downto 0); -- Tx sync command handshake
 		debug: out std_logic_vector(31 downto 0) := (others => '0') -- port for debug info, e.g. applied delay values
+                --cctr_rnd_dbg: out std_logic_vector(15 downto 0) --priya debug         
 	);
 end pdts_endpoint_top;
 
@@ -51,11 +52,11 @@ begin
   
   ep:  entity work.pdts_endpoint
     generic map(
-      SCLK_FREQ => 50.0,
+      SCLK_FREQ => 100.0, --PRIYA 50.0,
       EN_TX => EN_TX,
       SIM     => SIM,
-      NEED_ADJUST => NEED_ADJUST,
-      NEED_TSTAMP => NEED_TSTAMP
+      NEED_ADJUST => true, -- PRIYA NEED_ADJUST,
+      NEED_TSTAMP => true -- PRIYA NEED_TSTAMP
       )
     port map (
       sclk => sclk,
@@ -76,8 +77,10 @@ begin
       sync          => sync,
       sync_stb   => sync_stb,
       sync_first  => sync_first,
+      tstamp    => tstamp,
       tsync_in    => tsync_in_r,
-      tsync_out  => tsync_out_r
-      
+      tsync_out  => tsync_out_r,
+      debug       => debug
+     -- cctr_rnd_dbg => cctr_rnd_dbg
       );
 end rtl;

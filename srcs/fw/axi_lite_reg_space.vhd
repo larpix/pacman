@@ -20,7 +20,17 @@ entity axi_lite_reg_space is
     C_RW_REG0_OFFSET : std_logic_vector(11 downto 0) := x"010";
     C_RW_REG1_OFFSET : std_logic_vector(11 downto 0) := x"014";
     C_RW_REG2_OFFSET : std_logic_vector(11 downto 0) := x"018";
-    C_RW_REG3_OFFSET : std_logic_vector(11 downto 0) := X"01C"
+    C_RW_REG3_OFFSET : std_logic_vector(11 downto 0) := X"01C";
+
+    C_RO_REG4_OFFSET : std_logic_vector(11 downto 0) := x"020";
+    C_RO_REG5_OFFSET : std_logic_vector(11 downto 0) := x"024";
+    C_RO_REG6_OFFSET : std_logic_vector(11 downto 0) := x"028";
+    C_RO_REG7_OFFSET : std_logic_vector(11 downto 0) := X"02C";
+
+    C_RO_REG8_OFFSET   : std_logic_vector(11 downto 0) := x"030";
+    C_RO_REG9_OFFSET   : std_logic_vector(11 downto 0) := x"034";
+    C_RO_REG10_OFFSET : std_logic_vector(11 downto 0) := x"038";
+    C_RO_REG11_OFFSET : std_logic_vector(11 downto 0) := X"03C"
   );
   port (
     -- registers available from axi at specified offsets
@@ -33,6 +43,17 @@ entity axi_lite_reg_space is
     RO_REG1            : in std_logic_vector(C_S_AXI_LITE_DATA_WIDTH-1 downto 0);
     RO_REG2            : in std_logic_vector(C_S_AXI_LITE_DATA_WIDTH-1 downto 0);
     RO_REG3            : in std_logic_vector(C_S_AXI_LITE_DATA_WIDTH-1 downto 0);
+
+    RO_REG4            : in std_logic_vector(C_S_AXI_LITE_DATA_WIDTH-1 downto 0);
+    RO_REG5            : in std_logic_vector(C_S_AXI_LITE_DATA_WIDTH-1 downto 0);
+    RO_REG6            : in std_logic_vector(C_S_AXI_LITE_DATA_WIDTH-1 downto 0);
+    RO_REG7            : in std_logic_vector(C_S_AXI_LITE_DATA_WIDTH-1 downto 0);
+
+    RO_REG8            : in std_logic_vector(C_S_AXI_LITE_DATA_WIDTH-1 downto 0);
+    RO_REG9            : in std_logic_vector(C_S_AXI_LITE_DATA_WIDTH-1 downto 0);
+    RO_REG10          : in std_logic_vector(C_S_AXI_LITE_DATA_WIDTH-1 downto 0);
+    RO_REG11          : in std_logic_vector(C_S_AXI_LITE_DATA_WIDTH-1 downto 0);
+    
     
     -- high for 1 clock cycle whenever a register is updated
     update : out std_logic; 
@@ -256,7 +277,7 @@ begin
 
   -- Read data latch (RDATA)
   slv_reg_rden <= axi_arready and S_AXI_LITE_ARVALID and (not axi_rvalid) ;
-  process (slv_reg0, slv_reg1, slv_reg2, slv_reg3, axi_araddr, S_AXI_LITE_ARESETN, slv_reg_rden, RO_REG0, RO_REG1, RO_REG2, RO_REG3)
+  process (slv_reg0, slv_reg1, slv_reg2, slv_reg3, axi_araddr, S_AXI_LITE_ARESETN, slv_reg_rden, RO_REG0, RO_REG1, RO_REG2, RO_REG3,RO_REG4,RO_REG5,RO_REG6,RO_REG7,RO_REG8,RO_REG9,RO_REG10,RO_REG11)
   variable loc_addr :std_logic_vector(11 downto 0);
   begin
       loc_addr := axi_araddr(11 downto 0);
@@ -277,6 +298,22 @@ begin
           reg_data_out <= RO_REG2;
         when C_RO_REG3_OFFSET =>
           reg_data_out <= RO_REG3;
+        when C_RO_REG4_OFFSET =>
+          reg_data_out <= RO_REG4;
+       when C_RO_REG5_OFFSET =>
+          reg_data_out <= RO_REG5;
+       when C_RO_REG6_OFFSET =>
+          reg_data_out <= RO_REG6;
+       when C_RO_REG7_OFFSET =>
+          reg_data_out <= RO_REG7;
+       when C_RO_REG8_OFFSET =>
+          reg_data_out <= RO_REG8;
+       when C_RO_REG9_OFFSET =>
+          reg_data_out <= RO_REG9;
+       when C_RO_REG10_OFFSET =>
+          reg_data_out <= RO_REG10;
+       when C_RO_REG11_OFFSET =>
+          reg_data_out <= RO_REG11;          
         when others =>
           reg_data_out  <= (others => '0');
       end case;

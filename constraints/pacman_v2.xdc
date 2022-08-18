@@ -247,23 +247,4 @@ set_property PACKAGE_PIN D18 [get_ports RESETN]
 
 
 
-#PDTS
-set_property IOSTANDARD LVCMOS33 [get_ports pdts_txd]
-set_property IOSTANDARD LVCMOS33 [get_ports pdts_rec_d]
-set_property IOSTANDARD LVCMOS33 [get_ports pdts_rec_clk]
-set_property IOSTANDARD LVDS_25 [get_ports {cdr_clk_clk_p[0]}]
-set_property IOSTANDARD LVDS_25 [get_ports {cdr_clk_clk_n[0]}]
-set_property IOSTANDARD LVDS_25 [get_ports {sfp_tx_p[0]}]
-set_property IOSTANDARD LVDS_25 [get_ports {sfp_tx_n[0]}]
-set_property IOSTANDARD LVDS_25 [get_ports {cdr_data_clk_p[0]}]
-set_property IOSTANDARD LVDS_25 [get_ports {cdr_data_clk_n[0]}]
 
-set_property PACKAGE_PIN M17 [get_ports pdts_txd]
-set_property PACKAGE_PIN N17 [get_ports pdts_rec_d]
-set_property PACKAGE_PIN L17 [get_ports pdts_rec_clk]
-set_property PACKAGE_PIN W17 [get_ports {cdr_clk_clk_p[0]}]
-set_property PACKAGE_PIN Y18 [get_ports cdr_lol]
-set_property PACKAGE_PIN AA18 [get_ports cdr_los]
-set_property PACKAGE_PIN AB21 [get_ports sfp_los]
-set_property PACKAGE_PIN W20 [get_ports {sfp_tx_p[0]}]
-set_property PACKAGE_PIN W16 [get_ports {cdr_data_clk_p[0]}]

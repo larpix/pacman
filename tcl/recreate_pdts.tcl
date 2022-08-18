@@ -23,9 +23,9 @@
 # 2. The following source(s) files that were local or imported into the original project.
 #    (Please see the '$orig_proj_dir' and '$origin_dir' variable setting below at the start of the script)
 #
-#    "/home/psundara/DUNE/GIT/PACMAN/pacman/pacman-v2-fw/pacman-v2-fw.srcs/pacman/clk.xdc"
-#    "/home/psundara/DUNE/GIT/PACMAN/pacman/pacman-v2-fw/pacman-v2-fw.srcs/pacman/gpio.xdc"
-#    "/home/psundara/DUNE/GIT/PACMAN/pacman/pacman-v2-fw/pacman-v2-fw.srcs/pacman/pacman.xdc"
+#    "/home/psundara/DUNE/GIT/PACMAN/pacman/${_xil_proj_name_}/${_xil_proj_name_}.srcs/pacman/clk.xdc"
+#    "/home/psundara/DUNE/GIT/PACMAN/pacman/${_xil_proj_name_}/${_xil_proj_name_}.srcs/pacman/gpio.xdc"
+#    "/home/psundara/DUNE/GIT/PACMAN/pacman/${_xil_proj_name_}/${_xil_proj_name_}.srcs/pacman/pacman_rev4_pdts.xdc"
 #
 # 3. The following remote source files that were added to the original project:-
 #
@@ -96,7 +96,6 @@
 #    "/home/psundara/DUNE/GIT/PACMAN/pacman/srcs/ip/timing-board-firmware/components/common/firmware/hdl/pdts_rx_mul_mmcm.vhd"
 #    "/home/psundara/DUNE/GIT/PACMAN/pacman/constraints/clk.xdc"
 #    "/home/psundara/DUNE/GIT/PACMAN/pacman/constraints/gpio.xdc"
-#    "/home/psundara/DUNE/GIT/PACMAN/pacman/constraints/pacman.xdc"
 #    "/home/psundara/DUNE/GIT/PACMAN/pacman/srcs/fw/larpix_uart_tx.vhd"
 #    "/home/psundara/DUNE/GIT/PACMAN/pacman/srcs/fw/tb/uart_loopback_tb.vhd"
 #    "/home/psundara/DUNE/GIT/PACMAN/pacman/srcs/fw/tb/larpix_mclk_sel_tb.vhd"
@@ -138,6 +137,7 @@ proc checkRequiredFiles { origin_dir} {
    "$origin_dir/srcs/fw/uart_tx.vhd" \
    "$origin_dir/srcs/fw/uart_channel.vhd" \
    "$origin_dir/srcs/ip/timing-board-firmware/components/common/firmware/hdl/pdts_defs.vhd" \
+   "$origin_dir/srcs/ip/timing-board-firmware/components/endpoint/firmware/hdl/pdts_clock_defs_62.5_mhz.vhd" \
    "$origin_dir/srcs/ip/timing-board-firmware/components/common/firmware/hdl/outputlogic_crc16.vhd" \
    "$origin_dir/srcs/ip/timing-board-firmware/components/endpoint/firmware/hdl/pdts_acmd_rx.vhd" \
    "$origin_dir/srcs/ip/timing-board-firmware/components/common/firmware/hdl/pdts_synchro.vhd" \
@@ -184,7 +184,7 @@ proc checkRequiredFiles { origin_dir} {
    "$origin_dir/srcs/ip/timing-board-firmware/components/common/firmware/hdl/pdts_rx_mul_mmcm.vhd" \
    "$origin_dir/constraints/clk.xdc" \
    "$origin_dir/constraints/gpio.xdc" \
-   "$origin_dir/constraints/pacman_v2.xdc" \
+   "$origin_dir/constraints/pacman_rev4_pdts.xdc" \
    "$origin_dir/srcs/fw/larpix_uart_tx.vhd" \
    "$origin_dir/srcs/fw/tb/uart_loopback_tb.vhd" \
    "$origin_dir/srcs/fw/tb/larpix_mclk_sel_tb.vhd" \
@@ -225,7 +225,7 @@ if { [info exists ::origin_dir_loc] } {
 }
 
 # Set the project name
-set _xil_proj_name_ "pacman-v2-fw"
+set _xil_proj_name_ "pacman-rev4-pdts-fw"
 
 # Use project name variable, if specified in the tcl shell
 if { [info exists ::user_project_name] } {
@@ -364,6 +364,7 @@ set files [list \
  [file normalize "${origin_dir}/srcs/fw/uart_tx.vhd"] \
  [file normalize "${origin_dir}/srcs/fw/uart_channel.vhd"] \
  [file normalize "${origin_dir}/srcs/ip/timing-board-firmware/components/common/firmware/hdl/pdts_defs.vhd"] \
+ [file normalize "${origin_dir}/srcs/ip/timing-board-firmware/components/common/firmware/hdl/pdts_clock_defs_62.5_mhz.vhd"] \
  [file normalize "${origin_dir}/srcs/ip/timing-board-firmware/components/common/firmware/hdl/outputlogic_crc16.vhd"] \
  [file normalize "${origin_dir}/srcs/ip/timing-board-firmware/components/endpoint/firmware/hdl/pdts_acmd_rx.vhd"] \
  [file normalize "${origin_dir}/srcs/ip/timing-board-firmware/components/common/firmware/hdl/pdts_synchro.vhd"] \
@@ -391,7 +392,7 @@ set files [list \
  [file normalize "${origin_dir}/srcs/ip/timing-board-firmware/components/endpoint/firmware/hdl/pdts_endpoint_upstream.vhd"] \
  [file normalize "${origin_dir}/srcs/ip/timing-board-firmware/components/endpoint/firmware/hdl/pdts_endpoint_wrapper.vhd"] \
  [file normalize "${origin_dir}/srcs/ip/timing-board-firmware/components/endpoint/firmware/hdl/ipbus_decode_pdts_endpoint_wrapper.vhd"] \
-# [file normalize "${origin_dir}/srcs/ip/timing-board-firmware/components/endpoint/firmware/hdl/pdts_ep_sync_pulse.vhd"] \
+ [file normalize "${origin_dir}/srcs/ip/timing-board-firmware/components/endpoint/firmware/hdl/pdts_ep_sync_pulse.vhd"] \
  [file normalize "${origin_dir}/srcs/ip/timing-board-firmware/components/endpoint/firmware/hdl/pdts_wrapper_defs.vhd"] \
  [file normalize "${origin_dir}/srcs/ip/timing-board-firmware/components/endpoint/firmware/hdl/pdts_endpoint_wrapper_local.vhd"] \
  [file normalize "${origin_dir}/srcs/ip/timing-board-firmware/components/common/firmware/sim_hdl/pdts_rx_div_sim.vhd"] \
@@ -514,6 +515,11 @@ set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
 set_property -name "file_type" -value "VHDL" -objects $file_obj
 
 set file "$origin_dir/srcs/ip/timing-board-firmware/components/common/firmware/hdl/pdts_defs.vhd"
+set file [file normalize $file]
+set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
+set_property -name "file_type" -value "VHDL" -objects $file_obj
+
+set file "$origin_dir/srcs/ip/timing-board-firmware/components/common/firmware/hdl/pdts_clock_defs_62.5_mhz.vhd"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
 set_property -name "file_type" -value "VHDL" -objects $file_obj
@@ -783,9 +789,9 @@ set_property -name "used_in_implementation" -value "0" -objects $file_obj
 set_property -name "used_in_synthesis" -value "0" -objects $file_obj
 
 # Add/Import constrs file and set constrs file properties
-set file "[file normalize "$origin_dir/constraints/pacman.xdc"]"
+set file "[file normalize "$origin_dir/constraints/pacman_rev4_pdts.xdc"]"
 set file_added [add_files -norecurse -fileset $obj [list $file]]
-set file "$origin_dir/constraints/pacman.xdc"
+set file "$origin_dir/constraints/pacman_rev4_pdts.xdc"
 set file [file normalize $file]
 set file_obj [get_files -of_objects [get_filesets constrs_1] [list "*$file"]]
 set_property -name "file_type" -value "XDC" -objects $file_obj
@@ -882,7 +888,7 @@ set_property -name "file_type" -value "VHDL" -objects $file_obj
 set obj [get_filesets sim_1]
 set_property -name "hbs.configure_design_for_hier_access" -value "1" -objects $obj
 set_property -name "nl.mode" -value "funcsim" -objects $obj
-set_property -name "top" -value "uart_loopback_tb" -objects $obj
+#PRIYA set_property -name "top" -value "uart_loopback_tb" -objects $obj
 set_property -name "top_auto_set" -value "0" -objects $obj
 set_property -name "top_lib" -value "xil_defaultlib" -objects $obj
 
@@ -2089,6 +2095,13 @@ if { [get_files axi_lite_reg_space.vhd] == "" } {
 if { [get_files pdts_defs.vhd] == "" } {
   import_files -quiet -fileset sources_1 $origin_dir/srcs/ip/timing-board-firmware/components/common/firmware/hdl/pdts_defs.vhd
 }
+
+if { [get_files pdts_clock_defs_62.5_mhz.vhd] == "" } {
+  import_files -quiet -fileset sources_1 $origin_dir/srcs/ip/timing-board-firmware/components/common/firmware/hdl/pdts_clock_defs_62.5_mhz.vhd
+}
+
+
+
 if { [get_files outputlogic_crc16.vhd] == "" } {
   import_files -quiet -fileset sources_1 $origin_dir/srcs/ip/timing-board-firmware/components/common/firmware/hdl/outputlogic_crc16.vhd
 }
@@ -2158,6 +2171,10 @@ if { [get_files pdts_endpoint_top.vhd] == "" } {
 if { [get_files pdts_defs.vhd] == "" } {
   import_files -quiet -fileset sources_1 $origin_dir/srcs/ip/timing-board-firmware/components/common/firmware/hdl/pdts_defs.vhd
 }
+if { [get_files pdts_clock_defs_62.5_mhz.vhd] == "" } {
+  import_files -quiet -fileset sources_1 $origin_dir/srcs/ip/timing-board-firmware/components/common/firmware/hdl/pdts_clock_defs_62.5_mhz.vhd
+}
+
 if { [get_files pdts_ep_decoder.vhd] == "" } {
   import_files -quiet -fileset sources_1 $origin_dir/srcs/ip/timing-board-firmware/components/endpoint/firmware/hdl/pdts_ep_decoder.vhd
 }
@@ -9482,87 +9499,87 @@ proc create_hier_cell_axi_lite_reg_space { parentCell nameHier } {
   current_bd_instance $oldCurInst
 }
   
-# Hierarchical cell: I2C_out
-proc create_hier_cell_I2C_out { parentCell nameHier } {
+#PRIYA # Hierarchical cell: I2C_out
+#PRIYA proc create_hier_cell_I2C_out { parentCell nameHier } {
 
-  variable script_folder
+#PRIYA   variable script_folder
 
-  if { $parentCell eq "" || $nameHier eq "" } {
-     catch {common::send_gid_msg -ssname BD::TCL -id 2092 -severity "ERROR" "create_hier_cell_I2C_out() - Empty argument(s)!"}
-     return
-  }
+#PRIYA   if { $parentCell eq "" || $nameHier eq "" } {
+#PRIYA      catch {common::send_gid_msg -ssname BD::TCL -id 2092 -severity "ERROR" "create_hier_cell_I2C_out() - Empty argument(s)!"}
+#PRIYA      return
+#PRIYA   }
 
-  # Get object for parentCell
-  set parentObj [get_bd_cells $parentCell]
-  if { $parentObj == "" } {
-     catch {common::send_gid_msg -ssname BD::TCL -id 2090 -severity "ERROR" "Unable to find parent cell <$parentCell>!"}
-     return
-  }
+#PRIYA   # Get object for parentCell
+#PRIYA   set parentObj [get_bd_cells $parentCell]
+#PRIYA   if { $parentObj == "" } {
+#PRIYA      catch {common::send_gid_msg -ssname BD::TCL -id 2090 -severity "ERROR" "Unable to find parent cell <$parentCell>!"}
+#PRIYA      return
+#PRIYA   }
 
-  # Make sure parentObj is hier blk
-  set parentType [get_property TYPE $parentObj]
-  if { $parentType ne "hier" } {
-     catch {common::send_gid_msg -ssname BD::TCL -id 2091 -severity "ERROR" "Parent <$parentObj> has TYPE = <$parentType>. Expected to be <hier>."}
-     return
-  }
+#PRIYA   # Make sure parentObj is hier blk
+#PRIYA   set parentType [get_property TYPE $parentObj]
+#PRIYA   if { $parentType ne "hier" } {
+#PRIYA      catch {common::send_gid_msg -ssname BD::TCL -id 2091 -severity "ERROR" "Parent <$parentObj> has TYPE = <$parentType>. Expected to be <hier>."}
+#PRIYA      return
+#PRIYA   }
 
-  # Save current instance; Restore later
-  set oldCurInst [current_bd_instance .]
+#PRIYA   # Save current instance; Restore later
+#PRIYA   set oldCurInst [current_bd_instance .]
 
-  # Set parent object as current
-  current_bd_instance $parentObj
+#PRIYA   # Set parent object as current
+#PRIYA   current_bd_instance $parentObj
 
-  # Create cell and set as current instance
-  set hier_obj [create_bd_cell -type hier $nameHier]
-  current_bd_instance $hier_obj
+#PRIYA   # Create cell and set as current instance
+#PRIYA   set hier_obj [create_bd_cell -type hier $nameHier]
+#PRIYA   current_bd_instance $hier_obj
 
   # Create interface pins
 
   # Create pins
-  create_bd_pin -dir IO scl
-  create_bd_pin -dir I scl_i
-  create_bd_pin -dir O scl_o
-  create_bd_pin -dir I scl_t
-  create_bd_pin -dir IO sda
-  create_bd_pin -dir I sda_i
-  create_bd_pin -dir O sda_o
-  create_bd_pin -dir I sda_t
+#PRIYA   create_bd_pin -dir IO scl
+#PRIYA   create_bd_pin -dir I scl_i
+#PRIYA   create_bd_pin -dir O scl_o
+#PRIYA   create_bd_pin -dir I scl_t
+#PRIYA   create_bd_pin -dir IO sda
+#PRIYA   create_bd_pin -dir I sda_i
+#PRIYA   create_bd_pin -dir O sda_o
+#PRIYA   create_bd_pin -dir I sda_t
 
   # Create instance: iobuf_scl, and set properties
-  set block_name iobuf_out
-  set block_cell_name iobuf_scl
-  if { [catch {set iobuf_scl [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
-     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   } elseif { $iobuf_scl eq "" } {
-     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   }
+ #PRIYA  set block_name iobuf_out
+#PRIYA   set block_cell_name iobuf_scl
+#PRIYA   if { [catch {set iobuf_scl [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+#PRIYA      catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+#PRIYA      return 1
+#PRIYA    } elseif { $iobuf_scl eq "" } {
+#PRIYA      catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+#PRIYA      return 1
+#PRIYA    }
   
-  # Create instance: iobuf_sda, and set properties
-  set block_name iobuf_out
-  set block_cell_name iobuf_sda
-  if { [catch {set iobuf_sda [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
-     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   } elseif { $iobuf_sda eq "" } {
-     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   }
+#PRIYA   # Create instance: iobuf_sda, and set properties
+#PRIYA   set block_name iobuf_out
+#PRIYA   set block_cell_name iobuf_sda
+#PRIYA   if { [catch {set iobuf_sda [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+#PRIYA      catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+#PRIYA      return 1
+#PRIYA    } elseif { $iobuf_sda eq "" } {
+#PRIYA      catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+#PRIYA      return 1
+#PRIYA    }
   
   # Create port connections
-  connect_bd_net -net Net [get_bd_pins sda] [get_bd_pins iobuf_sda/iioo]
-  connect_bd_net -net Net1 [get_bd_pins scl] [get_bd_pins iobuf_scl/iioo]
-  connect_bd_net -net ii1_1 [get_bd_pins scl_i] [get_bd_pins iobuf_scl/ii]
-  connect_bd_net -net ii_1 [get_bd_pins sda_i] [get_bd_pins iobuf_sda/ii]
-  connect_bd_net -net iobuf_scl_oo [get_bd_pins scl_o] [get_bd_pins iobuf_scl/oo]
-  connect_bd_net -net iobuf_sda_oo [get_bd_pins sda_o] [get_bd_pins iobuf_sda/oo]
-  connect_bd_net -net tt1_1 [get_bd_pins scl_t] [get_bd_pins iobuf_scl/tt]
-  connect_bd_net -net tt_1 [get_bd_pins sda_t] [get_bd_pins iobuf_sda/tt]
+ #PRIYA  connect_bd_net -net Net [get_bd_pins sda] [get_bd_pins iobuf_sda/iioo]
+#PRIYA   connect_bd_net -net Net1 [get_bd_pins scl] [get_bd_pins iobuf_scl/iioo]
+#PRIYA   connect_bd_net -net ii1_1 [get_bd_pins scl_i] [get_bd_pins iobuf_scl/ii]
+#PRIYA   connect_bd_net -net ii_1 [get_bd_pins sda_i] [get_bd_pins iobuf_sda/ii]
+#PRIYA   connect_bd_net -net iobuf_scl_oo [get_bd_pins scl_o] [get_bd_pins iobuf_scl/oo]
+#PRIYA   connect_bd_net -net iobuf_sda_oo [get_bd_pins sda_o] [get_bd_pins iobuf_sda/oo]
+#PRIYA   connect_bd_net -net tt1_1 [get_bd_pins scl_t] [get_bd_pins iobuf_scl/tt]
+#PRIYA   connect_bd_net -net tt_1 [get_bd_pins sda_t] [get_bd_pins iobuf_sda/tt]
 
   # Restore current instance
-  current_bd_instance $oldCurInst
-}
+#PRIYA   current_bd_instance $oldCurInst
+#PRIYA }
   variable script_folder
 
   if { $parentCell eq "" } {
@@ -9603,21 +9620,21 @@ proc create_hier_cell_I2C_out { parentCell nameHier } {
   # Create ports
   set ANALOG_PWR_EN [ create_bd_port -dir O -from 0 -to 0 ANALOG_PWR_EN ]
   set CLK [ create_bd_port -dir O CLK ]
-  set CLK_N [ create_bd_port -dir O -from 7 -to 0 CLK_N ]
-  set CLK_P [ create_bd_port -dir O -from 7 -to 0 CLK_P ]
+#PRIYA   set CLK_N [ create_bd_port -dir O -from 7 -to 0 CLK_N ]
+#PRIYA   set CLK_P [ create_bd_port -dir O -from 7 -to 0 CLK_P ]
   set HW_SYNC_TRIG [ create_bd_port -dir I HW_SYNC_TRIG ]
-  set I2C_1_SCL [ create_bd_port -dir IO I2C_1_SCL ]
-  set I2C_1_SDA [ create_bd_port -dir IO I2C_1_SDA ]
+#PRIYA   set I2C_1_SCL [ create_bd_port -dir IO I2C_1_SCL ]
+#PRIYA   set I2C_1_SDA [ create_bd_port -dir IO I2C_1_SDA ]
   set MISO_0 [ create_bd_port -dir I -from 31 -to 0 MISO_0 ]
   set MOSI_0 [ create_bd_port -dir O -from 31 -to 0 MOSI_0 ]
   set RESETN [ create_bd_port -dir O RESETN ]
-  set RESETN_N [ create_bd_port -dir O -from 7 -to 0 RESETN_N ]
-  set RESETN_P [ create_bd_port -dir O -from 7 -to 0 RESETN_P ]
+#PRIYA   set RESETN_N [ create_bd_port -dir O -from 7 -to 0 RESETN_N ]
+#PRIYA   set RESETN_P [ create_bd_port -dir O -from 7 -to 0 RESETN_P ]
   set TILE_EN [ create_bd_port -dir O -from 7 -to 0 TILE_EN ]
   set TRIG [ create_bd_port -dir O -from 7 -to 0 TRIG ]
   set TRIG1_IN [ create_bd_port -dir I TRIG1_IN ]
-  set TRIG_N [ create_bd_port -dir O -from 7 -to 0 TRIG_N ]
-  set TRIG_P [ create_bd_port -dir O -from 7 -to 0 TRIG_P ]
+#PRIYA  set TRIG_N [ create_bd_port -dir O -from 7 -to 0 TRIG_N ]
+#PRIYA  set TRIG_P [ create_bd_port -dir O -from 7 -to 0 TRIG_P ]
   set UART_RX_BUSY [ create_bd_port -dir O UART_RX_BUSY ]
   set UART_TX_BUSY [ create_bd_port -dir O UART_TX_BUSY ]
   set cdr_lol [ create_bd_port -dir I cdr_lol ]
@@ -9628,7 +9645,7 @@ proc create_hier_cell_I2C_out { parentCell nameHier } {
   set sfp_tx_p [ create_bd_port -dir O -from 0 -to 0 -type clk sfp_tx_p ]
 
   # Create instance: I2C_out
-  create_hier_cell_I2C_out [current_bd_instance .] I2C_out
+#PRIYA   create_hier_cell_I2C_out [current_bd_instance .] I2C_out
 
   # Create instance: axi_lite_reg_space
   create_hier_cell_axi_lite_reg_space [current_bd_instance .] axi_lite_reg_space
@@ -10186,12 +10203,12 @@ proc create_hier_cell_I2C_out { parentCell nameHier } {
    CONFIG.PCW_SD0_GRP_CD_ENABLE {0} \
    CONFIG.PCW_SD0_GRP_POW_ENABLE {0} \
    CONFIG.PCW_SD0_GRP_WP_ENABLE {0} \
-   CONFIG.PCW_SD0_PERIPHERAL_ENABLE {1} \
+   CONFIG.PCW_SD0_PERIPHERAL_ENABLE {0} \
    CONFIG.PCW_SD0_SD0_IO {MIO 40 .. 45} \
+   CONFIG.PCW_SD1_PERIPHERAL_ENABLE {1} \
+   CONFIG.PCW_SD1_SD1_IO {MIO 34 .. 39} \
    CONFIG.PCW_SD1_GRP_CD_ENABLE {0} \
-   CONFIG.PCW_SD1_GRP_POW_ENABLE {0} \
-   CONFIG.PCW_SD1_GRP_WP_ENABLE {0} \
-   CONFIG.PCW_SD1_PERIPHERAL_ENABLE {0} \
+   CONFIG.PCW_SD1_GRP_POW_ENABLE {1} \
    CONFIG.PCW_SDIO0_BASEADDR {0xE0100000} \
    CONFIG.PCW_SDIO0_HIGHADDR {0xE0100FFF} \
    CONFIG.PCW_SDIO_PERIPHERAL_CLKSRC {IO PLL} \
@@ -10435,24 +10452,24 @@ proc create_hier_cell_I2C_out { parentCell nameHier } {
 
   # Create port connections
   connect_bd_net -net HW_SYNC_TRIG_1 [get_bd_ports HW_SYNC_TRIG] [get_bd_pins larpix_clk/HW_SYNC_TRIG]
-  connect_bd_net -net I2C_out_oo [get_bd_pins I2C_out/sda_o] [get_bd_pins processing_system7_0/I2C1_SDA_I]
-  connect_bd_net -net I2C_out_oo1 [get_bd_pins I2C_out/scl_o] [get_bd_pins processing_system7_0/I2C1_SCL_I]
+#PRIYA   connect_bd_net -net I2C_out_oo [get_bd_pins I2C_out/sda_o] [get_bd_pins processing_system7_0/I2C1_SDA_I]
+#PRIYA   connect_bd_net -net I2C_out_oo1 [get_bd_pins I2C_out/scl_o] [get_bd_pins processing_system7_0/I2C1_SCL_I]
   connect_bd_net -net MCLK_1 [get_bd_ports CLK] [get_bd_pins io/I_CLK] [get_bd_pins larpix_clk/MCLK] [get_bd_pins larpix_trig/MCLK] [get_bd_pins larpix_uart_array/MCLK]
   connect_bd_net -net MISO_0_1 [get_bd_ports MISO_0] [get_bd_pins larpix_uart_array/MISO]
-  connect_bd_net -net Net [get_bd_ports I2C_1_SDA] [get_bd_pins I2C_out/sda]
-  connect_bd_net -net Net1 [get_bd_ports I2C_1_SCL] [get_bd_pins I2C_out/scl]
+#PRIYA   connect_bd_net -net Net [get_bd_ports I2C_1_SDA] [get_bd_pins I2C_out/sda]
+#PRIYA   connect_bd_net -net Net1 [get_bd_ports I2C_1_SCL] [get_bd_pins I2C_out/scl]
   connect_bd_net -net TRIG1_IN_1 [get_bd_ports TRIG1_IN] [get_bd_pins larpix_trig/TRIG1_IN]
   connect_bd_net -net axi_lite_reg_space_analog_pwr_en [get_bd_ports ANALOG_PWR_EN] [get_bd_pins axi_lite_reg_space/analog_pwr_en]
   connect_bd_net -net axi_lite_reg_space_tile_en [get_bd_ports TILE_EN] [get_bd_pins axi_lite_reg_space/tile_en] [get_bd_pins io/I_TILE_EN] [get_bd_pins larpix_uart_array/TILE_EN]
   connect_bd_net -net cdr_lol_1 [get_bd_ports cdr_lol] [get_bd_pins pdts_endpoint/cdr_lol]
   connect_bd_net -net cdr_los_1 [get_bd_ports cdr_los] [get_bd_pins pdts_endpoint/cdr_los]
-  connect_bd_net -net io_O_CLK_N [get_bd_ports CLK_N] [get_bd_pins io/O_CLK_N]
-  connect_bd_net -net io_O_CLK_P [get_bd_ports CLK_P] [get_bd_pins io/O_CLK_P]
-  connect_bd_net -net io_O_RESETN_N [get_bd_ports RESETN_N] [get_bd_pins io/O_RESETN_N]
-  connect_bd_net -net io_O_RESETN_P [get_bd_ports RESETN_P] [get_bd_pins io/O_RESETN_P]
+#PRIYA   connect_bd_net -net io_O_CLK_N [get_bd_ports CLK_N] [get_bd_pins io/O_CLK_N]
+#PRIYA   connect_bd_net -net io_O_CLK_P [get_bd_ports CLK_P] [get_bd_pins io/O_CLK_P]
+#PRIYA   connect_bd_net -net io_O_RESETN_N [get_bd_ports RESETN_N] [get_bd_pins io/O_RESETN_N]
+#PRIYA   connect_bd_net -net io_O_RESETN_P [get_bd_ports RESETN_P] [get_bd_pins io/O_RESETN_P]
   connect_bd_net -net io_O_TRIG [get_bd_ports TRIG] [get_bd_pins io/O_TRIG]
-  connect_bd_net -net io_O_TRIG_N [get_bd_ports TRIG_N] [get_bd_pins io/O_TRIG_N]
-  connect_bd_net -net io_O_TRIG_P [get_bd_ports TRIG_P] [get_bd_pins io/O_TRIG_P]
+  #PRIYA connect_bd_net -net io_O_TRIG_N [get_bd_ports TRIG_N] [get_bd_pins io/O_TRIG_N]
+#PRIYA   connect_bd_net -net io_O_TRIG_P [get_bd_ports TRIG_P] [get_bd_pins io/O_TRIG_P]
   connect_bd_net -net larpix_clk_RST_SYNC_N [get_bd_ports RESETN] [get_bd_pins io/I_RESETN] [get_bd_pins larpix_clk/RST_SYNC_N]
   connect_bd_net -net larpix_trig_TRIG_MASKED [get_bd_pins io/I_TRIG] [get_bd_pins larpix_trig/TRIG_MASKED]
   connect_bd_net -net larpix_uart_array_MOSI [get_bd_ports MOSI_0] [get_bd_pins larpix_uart_array/MOSI]
@@ -10466,10 +10483,10 @@ proc create_hier_cell_I2C_out { parentCell nameHier } {
   connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_lite_reg_space/S_AXI_LITE_ACLK] [get_bd_pins data_rx/ACLK] [get_bd_pins data_tx/aclk] [get_bd_pins dma/ACLK] [get_bd_pins larpix_clk/ACLK] [get_bd_pins larpix_trig/ACLK] [get_bd_pins larpix_uart_array/ACLK] [get_bd_pins pdts_endpoint/pdts_sclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/M03_ACLK] [get_bd_pins ps7_0_axi_periph/M04_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins rst_ps7_0_100M/slowest_sync_clk]
   connect_bd_net -net processing_system7_0_FCLK_CLK1 [get_bd_pins larpix_clk/CLK_AUX] [get_bd_pins processing_system7_0/FCLK_CLK1]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_100M/ext_reset_in]
-  connect_bd_net -net processing_system7_0_I2C1_SCL_O [get_bd_pins I2C_out/scl_i] [get_bd_pins processing_system7_0/I2C1_SCL_O]
-  connect_bd_net -net processing_system7_0_I2C1_SCL_T [get_bd_pins I2C_out/scl_t] [get_bd_pins processing_system7_0/I2C1_SCL_T]
-  connect_bd_net -net processing_system7_0_I2C1_SDA_O [get_bd_pins I2C_out/sda_i] [get_bd_pins processing_system7_0/I2C1_SDA_O]
-  connect_bd_net -net processing_system7_0_I2C1_SDA_T [get_bd_pins I2C_out/sda_t] [get_bd_pins processing_system7_0/I2C1_SDA_T]
+#PRIYA   connect_bd_net -net processing_system7_0_I2C1_SCL_O [get_bd_pins I2C_out/scl_i] [get_bd_pins processing_system7_0/I2C1_SCL_O]
+#PRIYA   connect_bd_net -net processing_system7_0_I2C1_SCL_T [get_bd_pins I2C_out/scl_t] [get_bd_pins processing_system7_0/I2C1_SCL_T]
+#PRIYA   connect_bd_net -net processing_system7_0_I2C1_SDA_O [get_bd_pins I2C_out/sda_i] [get_bd_pins processing_system7_0/I2C1_SDA_O]
+#PRIYA   connect_bd_net -net processing_system7_0_I2C1_SDA_T [get_bd_pins I2C_out/sda_t] [get_bd_pins processing_system7_0/I2C1_SDA_T]
   connect_bd_net -net rst_ps7_0_100M_peripheral_aresetn [get_bd_pins axi_lite_reg_space/S_AXI_LITE_ARESETN] [get_bd_pins data_rx/ARESETN] [get_bd_pins data_tx/aresetn] [get_bd_pins dma/ARESETN] [get_bd_pins larpix_clk/RSTN] [get_bd_pins larpix_trig/ARESETN] [get_bd_pins larpix_uart_array/ARESETN] [get_bd_pins pdts_endpoint/pdts_aresetn] [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/M03_ARESETN] [get_bd_pins ps7_0_axi_periph/M04_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
   connect_bd_net -net sfp_los_1 [get_bd_ports sfp_los] [get_bd_pins pdts_endpoint/sfp_los]
   connect_bd_net -net xlconstant_0_dout [get_bd_pins larpix_clk/HW_HARD_RST_TRIG] [get_bd_pins larpix_clk/HW_STATE_RST_TRIG] [get_bd_pins larpix_trig/TRIG2_IN] [get_bd_pins larpix_trig/TRIG3_IN] [get_bd_pins xlconstant_0/dout]
@@ -10567,8 +10584,8 @@ preplace inst rst_ps7_0_100M -pg 1 -lvl 1 -x 210 -y 1580 -defaultsOSRD
 preplace inst xlconstant_0 -pg 1 -lvl 2 -x 560 -y 1620 -defaultsOSRD
 preplace inst pdts_endpoint -pg 1 -lvl 6 -x 2860 -y 1790 -defaultsOSRD
 preplace netloc HW_SYNC_TRIG_1 1 0 6 NJ 830 NJ 830 780J 780 1510J 782 1840J 396 2590J
-preplace netloc I2C_out_oo 1 6 2 3110 950 3470
-preplace netloc I2C_out_oo1 1 6 2 3100 930 3480
+#PRIYA preplace netloc I2C_out_oo 1 6 2 3110 950 3470
+#PRIYA preplace netloc I2C_out_oo1 1 6 2 3100 930 3480
 preplace netloc MCLK_1 1 2 6 870 830 1390J 870 1980J 436 2560J 1230 3120 540 NJ
 preplace netloc MISO_0_1 1 0 3 NJ 1140 NJ 1140 NJ
 preplace netloc Net 1 7 1 NJ 1050
@@ -10576,13 +10593,13 @@ preplace netloc Net1 1 7 1 NJ 1010
 preplace netloc TRIG1_IN_1 1 0 3 NJ 1680 NJ 1680 870J
 preplace netloc axi_lite_reg_space_analog_pwr_en 1 6 2 3120J 1390 3480J
 preplace netloc axi_lite_reg_space_tile_en 1 2 6 860 800 1440J 802 1960J 456 2550J 1260 3150 1400 NJ
-preplace netloc io_O_CLK_N 1 7 1 NJ 1200
-preplace netloc io_O_CLK_P 1 7 1 NJ 1220
-preplace netloc io_O_RESETN_N 1 7 1 NJ 1260
-preplace netloc io_O_RESETN_P 1 7 1 NJ 1280
+#PRIYA preplace netloc io_O_CLK_N 1 7 1 NJ 1200
+#PRIYA preplace netloc io_O_CLK_P 1 7 1 NJ 1220
+#PRIYA preplace netloc io_O_RESETN_N 1 7 1 NJ 1260
+#PRIYA preplace netloc io_O_RESETN_P 1 7 1 NJ 1280
 preplace netloc io_O_TRIG 1 7 1 NJ 1300
-preplace netloc io_O_TRIG_N 1 7 1 NJ 1320
-preplace netloc io_O_TRIG_P 1 7 1 NJ 1340
+#PRIYA preplace netloc io_O_TRIG_N 1 7 1 NJ 1320
+#PRIYA preplace netloc io_O_TRIG_P 1 7 1 NJ 1340
 preplace netloc larpix_clk_RST_SYNC_N 1 6 2 3160 560 NJ
 preplace netloc larpix_trig_TRIG_MASKED 1 3 4 1530J 1270 2020J 596 2470J 1270 3110
 preplace netloc larpix_uart_array_MOSI 1 3 5 1400J 1430 2040J 756 2420J 1430 3170J 1120 NJ
@@ -10655,7 +10672,7 @@ set_property REGISTERED_WITH_MANAGER "1" [get_files zsys.bd ]
 
 #call make_wrapper to create wrapper files
 if { [get_property IS_LOCKED [ get_files -norecurse zsys.bd] ] == 1  } {
-  import_files -fileset sources_1 [file normalize "${origin_dir}/pacman-v2-fw.gen/sources_1/bd/zsys/hdl/zsys_wrapper.vhd" ]
+    import_files -fileset sources_1 [file normalize "${origin_dir}/${_xil_proj_name_}.gen/sources_1/bd/zsys/hdl/zsys_wrapper.vhd" ]
 } else {
   set wrapper_path [make_wrapper -fileset sources_1 -files [ get_files -norecurse zsys.bd] -top]
   add_files -norecurse -fileset sources_1 $wrapper_path
