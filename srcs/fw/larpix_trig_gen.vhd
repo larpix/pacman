@@ -67,6 +67,12 @@ architecture arch_imp of larpix_trig_gen is
   signal trig_type_out : std_logic_vector(3 downto 0);  
   signal trig_masked_out : std_logic_vector(7 downto 0);
 
+  --double buffer to MCLK clock domain
+  signal TRIG0_IN_d :  std_logic_vector(1 downto 0);
+  signal TRIG1_IN_d : std_logic_vector(1 downto 0);
+  signal TRIG2_IN_d : std_logic_vector(1 downto 0);
+  signal TRIG3_IN_d : std_logic_vector(1 downto 0);    
+
 begin
   TRIG <= trig0 or trig1 or trig2 or trig3;
   TRIG_TYPE <= trig3 & trig2 & trig1 & trig0;
@@ -76,10 +82,11 @@ begin
   glitch_rej : process (MCLK) is
   begin
     if (rising_edge(MCLK)) then
-      trig0_srg <= TRIG0_IN & trig0_srg(trig0_srg'length-1 downto 1);
-      trig1_srg <= TRIG1_IN & trig1_srg(trig1_srg'length-1 downto 1);
-      trig2_srg <= TRIG2_IN & trig2_srg(trig2_srg'length-1 downto 1);
-      trig3_srg <= TRIG3_IN & trig3_srg(trig3_srg'length-1 downto 1);      
+      
+      trig0_srg <= TRIG0_IN_d(1) & trig0_srg(trig0_srg'length-1 downto 1);
+      trig1_srg <= TRIG1_IN_d(1) & trig1_srg(trig1_srg'length-1 downto 1);
+      trig2_srg <= TRIG2_IN_d(1) & trig2_srg(trig2_srg'length-1 downto 1);
+      trig3_srg <= TRIG3_IN_d(1) & trig3_srg(trig3_srg'length-1 downto 1);      
 
       if (trig0_srg = "11") then
         trig0_rx <= '1';
@@ -123,7 +130,24 @@ begin
       trig3_mask_mclk <= trig3_mask_meta;            
     end if;
   end process;  
-  
+
+  --double buffer
+  larpix_db : process (MCLK, RSTN) is
+  begin
+    if (RSTN = '0') then
+      TRIG0_IN_d <= "00";
+      TRIG1_IN_d <= "00";
+      TRIG2_IN_d <= "00";
+      TRIG3_IN_d <= "00";
+          
+    elsif (rising_edge(MCLK)) then
+        TRIG0_IN_d <= TRIG0_IN_d(0) & TRIG0_IN;
+        TRIG1_IN_d <= TRIG1_IN_d(0) & TRIG1_IN;
+        TRIG2_IN_d <= TRIG2_IN_d(0) & TRIG2_IN;
+        TRIG3_IN_d <= TRIG3_IN_d(0) & TRIG3_IN;
+    end if;
+  end process;
+
   -- trigger generator
   larpix_trig_fsm : process (MCLK, RSTN) is
   begin

@@ -30,3 +30,18 @@ set_property PACKAGE_PIN AB21 [get_ports {gpio_0_tri_io[12]}]
 set_property PACKAGE_PIN AA19 [get_ports {gpio_0_tri_io[13]}]
 set_property PACKAGE_PIN AB17 [get_ports {gpio_0_tri_io[14]}]
 
+
+#Test Points
+
+set_property PACKAGE_PIN J17 [get_ports {usr_t[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {usr_t[0]}]
+set_property PACKAGE_PIN L17 [get_ports {usr_t[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {usr_t[1]}]
+set_property PACKAGE_PIN J15 [get_ports {usr_t[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {usr_t[2]}]
+set_property PACKAGE_PIN M17 [get_ports {usr_t[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {usr_t[3]}]
+set_property PACKAGE_PIN T16 [get_ports {usr_t[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {usr_t[4]}
+set_property PACKAGE_PIN N17 [get_ports {usr_t[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {usr_t[5]}]

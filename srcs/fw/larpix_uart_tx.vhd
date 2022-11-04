@@ -21,6 +21,7 @@ entity larpix_uart_tx is
 
     -- uart
     MCLK : in std_logic;
+    MRST : in std_logic;    
     UART_TX_OUT : out std_logic;
     CLKOUT_RATIO : in std_logic_vector (7 downto 0);
     CLKOUT_PHASE : in std_logic_vector (3 downto 0);    
@@ -74,6 +75,7 @@ architecture arch_imp of larpix_uart_tx is
       CLKOUT_RATIO : IN  STD_LOGIC_VECTOR (7 downto 0);
       CLKOUT_PHASE : IN  STD_LOGIC_VECTOR (3 downto 0);
       MCLK         : IN STD_LOGIC;
+      MRST         : IN STD_LOGIC;      
       TX           : OUT STD_LOGIC;
       data         : IN  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0);
       data_update  : IN  STD_LOGIC;
@@ -159,6 +161,7 @@ begin
   -- drive uart pin
   uart_tx_inst : uart_tx port map(
     MCLK => MCLK,
+    MRST => MRST,
     CLK => ACLK,
     RST => rst,
     CLKOUT_RATIO => CLKOUT_RATIO,

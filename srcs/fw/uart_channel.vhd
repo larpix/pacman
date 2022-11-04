@@ -198,7 +198,7 @@ begin
   ACLK_1 <= ACLK;
   ARESETN_1 <= ARESETN;
   C_CHANNEL_1(7 downto 0) <= C_CHANNEL(7 downto 0);
-  MCLK_1 <= MCLK;
+--  MCLK_1 <= MCLK;
   M_AXIS_tdata(127 downto 0) <= larpix_uart_rx_0_M_AXIS_TDATA(127 downto 0);
   M_AXIS_tkeep(15 downto 0) <= larpix_uart_rx_0_M_AXIS_TKEEP(15 downto 0);
   M_AXIS_tlast <= larpix_uart_rx_0_M_AXIS_TLAST;
@@ -282,7 +282,7 @@ begin
       ARESETN => ARESETN_1,
       CLKIN_RATIO(7 downto 0) => CLKIN_RATIO_1(7 downto 0),
       CLKIN_PHASE(7 downto 0) => CLKIN_PHASE(7 downto 0),
-      MCLK => MCLK_1,
+      MCLK => MCLK, --MCLK_1,
       M_AXIS_TDATA(127 downto 0) => larpix_uart_rx_0_M_AXIS_TDATA(127 downto 0),
       M_AXIS_TKEEP(15 downto 0) => larpix_uart_rx_0_M_AXIS_TKEEP(15 downto 0),
       M_AXIS_TLAST => larpix_uart_rx_0_M_AXIS_TLAST,
@@ -301,7 +301,7 @@ begin
       CLKOUT_RATIO(7 downto 0) => CLKIN_RATIO_1(7 downto 0),
       CLKOUT_PHASE(3 downto 0) => CLKOUT_PHASE(3 downto 0),      
       FIFO_COUNT(8 downto 0) => larpix_uart_tx_0_FIFO_COUNT(8 downto 0),
-      MCLK => MCLK_1,
+      MCLK => MCLK, --MCLK_1,
       S_AXIS_TDATA(127 downto 0) => S_AXIS_1_TDATA(127 downto 0),
       S_AXIS_TKEEP(15 downto 0) => S_AXIS_1_TKEEP(15 downto 0),
       S_AXIS_TLAST => S_AXIS_1_TLAST,

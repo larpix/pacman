@@ -17,6 +17,7 @@ ENTITY uart_tx IS
     CLKOUT_PHASE : IN  STD_LOGIC_VECTOR (3 downto 0);    
     -- UART TX
     MCLK        : IN  STD_LOGIC;
+    MRST        : IN  STD_LOGIC;    
     TX          : OUT STD_LOGIC;
     -- received data
     data        : IN  STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0);
@@ -45,7 +46,8 @@ ARCHITECTURE uart_tx_arch OF uart_tx IS
   SIGNAL state : state_type := IDLE;
 
   SIGNAL srg : STD_LOGIC_VECTOR (DATA_WIDTH+1 DOWNTO 0);
-  
+
+  signal MCLK_2x : std_logic;
   attribute ASYNC_REG : string;
   attribute ASYNC_REG of mclk_meta: signal is "TRUE";
   attribute ASYNC_REG of mclk_sync: signal is "TRUE";
@@ -56,10 +58,22 @@ BEGIN  -- ARCHITECTURE uart_tx_arch
   busy <= busy_out;
   TC <= (others => '0');
 
+  mclk_2x_proc : process (MCLK, MRST) is
+  begin
+    if (MRST = '1') then
+      MCLK_2x <= '0';
+    elsif (rising_edge(MCLK)) then
+      MCLK_2x <= not(MCLK_2x);
+   
+   end if;
+  end process;
+  
+ 
+    
   mclk_sync_proc : process (CLK) is
   begin
     if (rising_edge(CLK)) then
-      mclk_meta <= MCLK;
+      mclk_meta <= MCLK_2x;
       mclk_sync <= mclk_meta;
       mclk_prev <= mclk_sync;
     end if;
