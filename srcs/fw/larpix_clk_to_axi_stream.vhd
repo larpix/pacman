@@ -12,8 +12,8 @@ entity larpix_clk_to_axi_stream is
     );
   port (
     -- mclk'd timestamps
-    TIMESTAMP : in unsigned(31 downto 0) := (others => '0');
-    TIMESTAMP_PREV : in unsigned(31 downto 0) := (others => '0');
+    TIMESTAMP : in unsigned(63 downto 0) := (others => '0');
+    TIMESTAMP_PREV : in unsigned(63 downto 0) := (others => '0');
     TIMESTAMP_SYNC : in std_logic;
     CLK_SRC : in std_logic;
 
@@ -46,11 +46,11 @@ architecture implementation of larpix_clk_to_axi_stream is
 
 
   signal mclk_prev : std_logic;
-  signal timestamp_meta : unsigned(31 downto 0) := (others => '0');
-  signal timestamp_aclk : unsigned(31 downto 0) := (others => '0');
+  signal timestamp_meta : unsigned(63 downto 0) := (others => '0');
+  signal timestamp_aclk : unsigned(63 downto 0) := (others => '0');
   
-  signal timestamp_prev_meta : unsigned(31 downto 0) := (others => '0');
-  signal timestamp_prev_aclk : unsigned(31 downto 0) := (others => '0');
+  signal timestamp_prev_meta : unsigned(63 downto 0) := (others => '0');
+  signal timestamp_prev_aclk : unsigned(63 downto 0) := (others => '0');
   signal timestamp_sync_meta : std_logic;
   signal timestamp_sync_aclk : std_logic;
   signal timestamp_sync_prev : std_logic;
@@ -135,22 +135,23 @@ begin
             axis_tvalid <= '0';
             
             -- falling edge of timestamp_sync
-            if (timestamp_sync_aclk = '0' and timestamp_sync_prev = '1') then
-              axis_tvalid <= '1';
-              data_out <= x"0000000000000000" & std_logic_vector(timestamp_prev_aclk) & x"0000" & C_SYNC_FLAG & C_M_AXIS_TDATA_TYPE;
-              mst_exec_state <= TX;
+            -- if (timestamp_sync_aclk = '0' and timestamp_sync_prev = '1') then
+            --   axis_tvalid <= '1';
+            --   data_out <= std_logic_vector(timestamp_prev_aclk) & x"000000000000" & C_SYNC_FLAG & C_M_AXIS_TDATA_TYPE;
+            --   mst_exec_state <= TX;
 
             -- heart beat
-            elsif (hb_counter = 0 and HB_EN = '1') then
+            if (hb_counter = 0 and HB_EN = '1') then
               axis_tvalid <= '1';
-              data_out <= x"0000000000000000" & std_logic_vector(timestamp_aclk) & x"0000" & C_HB_FLAG & C_M_AXIS_TDATA_TYPE;
+              data_out <=  std_logic_vector(timestamp_aclk) & x"000000000000" & C_HB_FLAG & C_M_AXIS_TDATA_TYPE;
               mst_exec_state <= TX;
-
-            -- clock source switch
-            elsif (not (clk_src_prev = clk_src_aclk)) then
-              axis_tvalid <= '1';
-              data_out <= x"0000000000000000" & std_logic_vector(timestamp_aclk) & x"000" & "000" & clk_src_aclk & C_CLK_SRC_FLAG & C_M_AXIS_TDATA_TYPE;
             end if;
+            
+            -- clock source switch
+            -- elsif (not (clk_src_prev = clk_src_aclk)) then
+            --   axis_tvalid <= '1';
+            --   data_out <=  std_logic_vector(timestamp_aclk) & x"00000000000" &  "000" & clk_src_aclk & C_CLK_SRC_FLAG & C_M_AXIS_TDATA_TYPE;
+            -- end if;
 
           when TX =>
             axis_tvalid <= '1';

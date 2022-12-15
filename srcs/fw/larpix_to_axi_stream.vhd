@@ -12,7 +12,7 @@ entity larpix_to_axi_stream is
   port (
     --C_M_AXIS_TDATA_CHANNEL  : in std_logic_vector(7 downto 0) := x"FF";
     
-    timestamp           : in unsigned(31 downto 0) := (others => '0');
+    timestamp           : in unsigned(63 downto 0) := (others => '0');
 
     data_LArPix         : in std_logic_vector(C_LARPIX_DATA_WIDTH-1 downto 0);
     data_update_LArPix  : in std_logic;
@@ -70,7 +70,7 @@ begin
             if (data_update_LArPix = '1') then
               busy <= '1';
               axis_tvalid <= '1';
-              data_out <= data_LArPix & x"0000" & std_logic_vector(timestamp) & C_M_AXIS_TDATA_CHANNEL & C_M_AXIS_TDATA_TYPE;
+              data_out <= data_LArPix &  std_logic_vector(timestamp(63 downto 16)) & C_M_AXIS_TDATA_CHANNEL & C_M_AXIS_TDATA_TYPE;
               mst_exec_state <= TX;
             end if;
 

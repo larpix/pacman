@@ -9,7 +9,7 @@ entity larpix_trig_to_axi_stream is
     );
   port (
     TRIG_TYPE : in std_logic_vector(7 downto 0);
-    TRIG_TIMESTAMP : in unsigned(31 downto 0) := (others => '0');
+    TRIG_TIMESTAMP : in unsigned(63 downto 0) := (others => '0');
 
     -- axi-stream master
     M_AXIS_ACLK	        : in std_logic;
@@ -38,9 +38,9 @@ architecture implementation of larpix_trig_to_axi_stream is
   signal trig_type_aclk : std_logic_vector(7 downto 0);
   signal trig_type_prev : std_logic_vector(7 downto 0);
   signal trig_type_latched : std_logic_vector(7 downto 0);
-  signal trig_timestamp_meta : unsigned(31 downto 0);
-  signal trig_timestamp_aclk : unsigned(31 downto 0);
-  signal trig_timestamp_latched : unsigned(31 downto 0);
+  signal trig_timestamp_meta : unsigned(63 downto 0);
+  signal trig_timestamp_aclk : unsigned(63 downto 0);
+  signal trig_timestamp_latched : unsigned(63 downto 0);
   
   signal data_out       : std_logic_vector(C_M_AXIS_TDATA_WIDTH-1 downto 0);
   signal axis_tvalid	: std_logic;
@@ -89,7 +89,7 @@ begin
 
           when TX =>
             axis_tvalid <= '1';
-            data_out <= x"0000000000000000" & std_logic_vector(trig_timestamp_latched) & x"0000" & trig_type_latched & C_M_AXIS_TDATA_TYPE;
+            data_out <=  std_logic_vector(trig_timestamp_latched) & x"000000000000" & trig_type_latched & C_M_AXIS_TDATA_TYPE;
             mst_exec_state <= TX_WT;
             
           when TX_WT =>

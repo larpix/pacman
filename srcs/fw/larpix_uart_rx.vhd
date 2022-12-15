@@ -21,7 +21,7 @@ entity larpix_uart_rx is
     MCLK : in std_logic;
     CLKIN_RATIO : in std_logic_vector (7 downto 0);
     CLKIN_PHASE : in std_logic_vector (7 downto 0);    
-    PACMAN_TS : in unsigned (31 downto 0);
+    PACMAN_TS : in unsigned (63 downto 0);
     UART_RX_IN : in std_logic;
     UART_RX_BUSY : out std_logic;
 
@@ -49,7 +49,7 @@ architecture arch_imp of larpix_uart_rx is
     port (
       --C_M_AXIS_TDATA_CHANNEL  : in std_logic_vector(7 downto 0) := C_CHANNEL;
       
-      timestamp : in unsigned(31 downto 0) := (others => '0');
+      timestamp : in unsigned(63 downto 0) := (others => '0');
       data_LArPix : in std_logic_vector(C_LARPIX_DATA_WIDTH-1 downto 0);
       data_update_LArPix : in std_logic;
       busy_LArPix : out std_logic;

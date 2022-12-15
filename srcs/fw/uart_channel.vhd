@@ -10,13 +10,14 @@ entity uart_channel is
     ACLK : in STD_LOGIC;
     ARESETN : in STD_LOGIC;
     MCLK : in STD_LOGIC;
+    MRST : in STD_LOGIC;
     M_AXIS_tdata : out STD_LOGIC_VECTOR ( 127 downto 0 );
     M_AXIS_tkeep : out STD_LOGIC_VECTOR ( 15 downto 0 );
     M_AXIS_tlast : out STD_LOGIC;
     M_AXIS_tready : in STD_LOGIC;
     M_AXIS_tstrb : out STD_LOGIC_VECTOR ( 15 downto 0 );
     M_AXIS_tvalid : out STD_LOGIC;
-    PACMAN_TS : in UNSIGNED ( 31 downto 0 );
+    PACMAN_TS : in UNSIGNED ( 63 downto 0 );
     S_AXIS_tdata : in STD_LOGIC_VECTOR ( 127 downto 0 );
     S_AXIS_tkeep : in STD_LOGIC_VECTOR ( 15 downto 0 );
     S_AXIS_tlast : in STD_LOGIC;
@@ -58,6 +59,7 @@ architecture arch_imp of uart_channel is
     ACLK : in STD_LOGIC;
     ARESETN : in STD_LOGIC;
     MCLK : in STD_LOGIC;
+    MRST : in STD_LOGIC;
     UART_TX_OUT : out STD_LOGIC;
     CLKOUT_RATIO : in STD_LOGIC_VECTOR ( 7 downto 0 );
     CLKOUT_PHASE : in STD_LOGIC_VECTOR ( 3 downto 0 );    
@@ -82,7 +84,7 @@ architecture arch_imp of uart_channel is
     MCLK : in STD_LOGIC;
     CLKIN_RATIO : in STD_LOGIC_VECTOR ( 7 downto 0 );
     CLKIN_PHASE : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    PACMAN_TS : in UNSIGNED ( 31 downto 0 );
+    PACMAN_TS : in UNSIGNED ( 63 downto 0 );
     UART_RX_IN : in STD_LOGIC;
     UART_RX_BUSY : out STD_LOGIC;
     M_AXIS_TVALID : out STD_LOGIC;
@@ -149,7 +151,7 @@ architecture arch_imp of uart_channel is
   signal ARESETN_1 : STD_LOGIC;
   signal C_CHANNEL_1 : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal MCLK_1 : STD_LOGIC;
-  signal PACMAN_TS_1 : UNSIGNED ( 31 downto 0 );
+  signal PACMAN_TS_1 : UNSIGNED ( 63 downto 0 );
   signal S_AXIS_1_TDATA : STD_LOGIC_VECTOR ( 127 downto 0 );
   signal S_AXIS_1_TKEEP : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal S_AXIS_1_TLAST : STD_LOGIC;
@@ -204,7 +206,7 @@ begin
   M_AXIS_tlast <= larpix_uart_rx_0_M_AXIS_TLAST;
   M_AXIS_tstrb(15 downto 0) <= larpix_uart_rx_0_M_AXIS_TSTRB(15 downto 0);
   M_AXIS_tvalid <= larpix_uart_rx_0_M_AXIS_TVALID;
-  PACMAN_TS_1(31 downto 0) <= PACMAN_TS(31 downto 0);
+  PACMAN_TS_1(63 downto 0) <= PACMAN_TS(63 downto 0);
   S_AXIS_1_TDATA(127 downto 0) <= S_AXIS_tdata(127 downto 0);
   S_AXIS_1_TKEEP(15 downto 0) <= S_AXIS_tkeep(15 downto 0);
   S_AXIS_1_TLAST <= S_AXIS_tlast;
@@ -289,7 +291,7 @@ begin
       M_AXIS_TREADY => larpix_uart_rx_0_M_AXIS_TREADY,
       M_AXIS_TSTRB(15 downto 0) => larpix_uart_rx_0_M_AXIS_TSTRB(15 downto 0),
       M_AXIS_TVALID => larpix_uart_rx_0_M_AXIS_TVALID,
-      PACMAN_TS(31 downto 0) => PACMAN_TS_1(31 downto 0),
+      PACMAN_TS(63 downto 0) => PACMAN_TS_1(63 downto 0),
       UART_RX_IN => UART_RX_1,
       UART_RX_BUSY => UART_RX_BUSY
       );
@@ -298,6 +300,7 @@ begin
      port map (
       ACLK => ACLK_1,
       ARESETN => ARESETN_1,
+      MRST => MRST,
       CLKOUT_RATIO(7 downto 0) => CLKIN_RATIO_1(7 downto 0),
       CLKOUT_PHASE(3 downto 0) => CLKOUT_PHASE(3 downto 0),      
       FIFO_COUNT(8 downto 0) => larpix_uart_tx_0_FIFO_COUNT(8 downto 0),
