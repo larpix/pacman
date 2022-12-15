@@ -58,6 +58,7 @@ $vivado -mode batch -source tcl/recreate_xpr.tcl
 
 # !!!build_xpr.tcl does not work!!! After fixing block diagram IP constants (larpix_clk, axi_reg_lite_space gave us issues), generate bitstream in Vivado GUI
 # sythesize, implement, write bitstream, and export hardware
+#PRIYA -- build_pdts.tcl broken, generate bitstream using GUI
 $vivado -mode batch -source tcl/build_xpr.tcl
 
 A successful build produces the file:
