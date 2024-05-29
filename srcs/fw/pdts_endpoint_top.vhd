@@ -3,84 +3,89 @@ use IEEE.STD_LOGIC_1164.ALL;
 use ieee.numeric_std.all;
 
 use work.pdts_defs.all;
---use work.pdts_ep_pkg.all;
+use work.pdts_ep_defs.all;
 
 entity pdts_endpoint_top is
-	generic(
-		--SCLK_FREQ: real := 100.0; -- Frequency (MHz) of the supplied sclk
-		EN_TX: boolean := false;
-		SIM: boolean := false
-		--NEED_ADJUST: boolean := true;
-		--NEED_TSTAMP: boolean := true
-	);
 	port(
 		sclk: in std_logic; -- Free-running system clock
 		srst: in std_logic; -- System reset (sclk domain)
-		addr: in std_logic_vector(7 downto 0); -- Endpoint address (async, sampled in clk domain)
-		tgrp: in std_logic_vector(1 downto 0); -- Timing group (async, sampled in clk domain)
+		addr: in std_logic_vector(15 downto 0); -- Endpoint address (async, sampled in clk domain)	
 		stat: out std_logic_vector(3 downto 0); -- Status output (sclk domain)
-		rec_clk: in std_logic; -- CDR recovered clock from timing link
-		rec_d: in std_logic; -- CDR recovered data from timing link (rec_clk domain)
+                rxd: in std_logic; -- Timing input (clk domain)
 		txd: out std_logic; -- Output data to timing link (rec_clk domain)
+                txenb: out std_logic; -- Timing output enable (active low for SFP) (clk domain)
 		sfp_los: in std_logic := '0'; -- SFP LOS line (async, sampled in sclk domain)
-		cdr_los: in std_logic := '0'; -- CDR LOS line (async, sampled in sclk domain)
-		cdr_lol: in std_logic := '0'; -- CDR LOL line (async, sampled in sclk domain)
-		sfp_tx_dis: out std_logic; -- SFP tx disable line (clk domain)
 		clk: out std_logic; -- 50MHz clock output
 		rst: out std_logic; -- 50MHz domain reset
 		rdy: out std_logic; -- Timestamp valid flag
-		sync: out std_logic_vector(SCMD_W - 1 downto 0); -- Sync command output (clk domain)
+		sync: out std_logic_vector(7 downto 0); -- Sync command output (clk domain)
 		sync_stb: out std_logic; -- Sync command strobe (clk domain)
-		sync_first: out std_logic; -- Sync command valid flag (clk domain)
-		tstamp: out std_logic_vector(8 * TSTAMP_WDS - 1 downto 0); -- Timestamp out
-                tsync_in: in std_logic_vector(9 downto 0); -- Tx sync command input
-                tsync_out: out std_logic_vector(1 downto 0); -- Tx sync command handshake
-		debug: out std_logic_vector(31 downto 0) := (others => '0') -- port for debug info, e.g. applied delay values
-                --cctr_rnd_dbg: out std_logic_vector(15 downto 0) --priya debug         
+		tstamp: out std_logic_vector(64 - 1 downto 0); -- Timestamp out
+                dcmd  : out std_logic_vector (7 downto 0);
+                pdts_debug : out std_logic_vector(31 downto 0)
+          
 	);
 end pdts_endpoint_top;
 
+
+
 architecture rtl of pdts_endpoint_top is
-  signal tsync_out_r : cmd_r;
-  signal tsync_in_r : cmd_w;
+  signal ctrl_out : pdts_cmo;
+  signal ctrl_in  : pdts_cmi;
+  signal pdts_clk :std_logic;
+  signal pdts_rst :std_logic;
+  signal pdts_sync: std_logic_vector(7 downto 0);
+  signal pdts_sync_stb : std_logic;
+  ATTRIBUTE X_INTERFACE_PARAMETER : string;
+  ATTRIBUTE X_INTERFACE_PARAMETER of clk: SIGNAL is "FREQ_HZ 62500000"; 
 begin
-  tsync_out(0)   <=tsync_out_r.ren;
-  tsync_out(1)   <= tsync_out_r.ack;
-  tsync_in_r.d    <= tsync_in(7 downto 0);
-  tsync_in_r.req <= tsync_in(8);
-  tsync_in_r.last <= tsync_in(9);
+  clk <= pdts_clk;
+  rst <= pdts_rst;
+  sync<= pdts_sync;
+  sync_stb <= pdts_sync_stb;
   
   ep:  entity work.pdts_endpoint
     generic map(
-      SCLK_FREQ => 100.0, --PRIYA 50.0,
-      EN_TX => EN_TX,
-      SIM     => SIM,
-      NEED_ADJUST => true, -- PRIYA NEED_ADJUST,
-      NEED_TSTAMP => true -- PRIYA NEED_TSTAMP
+      SCLK_FREQ => 100.0  --PRIYA 50.0,
+     --  BUFG_IN_DATAPATH => true
+      --EXT_PLL_DIV => 1
       )
     port map (
-      sclk => sclk,
-      srst => srst,
-      addr => addr,
-      tgrp => tgrp,
-      stat => stat,
-      rec_clk => rec_clk,
-      rec_d   => rec_d,
+      sys_clk => sclk,
+      sys_rst => srst,
+      sys_addr => addr,
+     -- sys_ctrl_in  => sys_ctrl_in,     
+     -- sys_ctrl_out => sys_ctrl_out,
+      sys_stat => stat,
+      ctrl_out=>ctrl_out,
+      ctrl_in => ctrl_in ,
+--      pll_clko => unused
+--      pll_clki => unused
+    
+      los => sfp_los,
+      rxd => rxd,
       txd      => txd,
-      sfp_los=> sfp_los,
-      cdr_los=> cdr_los,
-      cdr_lol => cdr_lol,
-      sfp_tx_dis => sfp_tx_dis,
-      clk             => clk,
-      rst             => rst,
-      rdy            => rdy,
-      sync          => sync,
-      sync_stb   => sync_stb,
-      sync_first  => sync_first,
-      tstamp    => tstamp,
-      tsync_in    => tsync_in_r,
-      tsync_out  => tsync_out_r,
-      debug       => debug
-     -- cctr_rnd_dbg => cctr_rnd_dbg
+      txenb    => txenb,
+      clk             => pdts_clk,
+      rst             => pdts_rst,
+--      clk2x         => unused
+--      clk4x         => unused
+      ready           => rdy,
+      tstamp          => tstamp,
+      sync            => pdts_sync,
+      sync_stb        => pdts_sync_stb,
+      debug            => pdts_debug
       );
+
+  decode: entity work.pdts_cmd_decoder
+    port map(
+      clk => pdts_clk,
+      rst => pdts_rst,
+      ctrl_in => ctrl_out,
+      ctrl_out => ctrl_in,
+      sync => pdts_sync,
+      sync_stb => pdts_sync_stb,
+      cmd => dcmd
+      );
+
 end rtl;
