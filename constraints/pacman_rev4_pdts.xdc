@@ -248,8 +248,6 @@ set_property PACKAGE_PIN D18 [get_ports {RESETN[0]}]
 
 #PDTS
 
-set_property IOSTANDARD LVDS_25 [get_ports {cdr_clk_clk_p[0]}]
-set_property IOSTANDARD LVDS_25 [get_ports {cdr_clk_clk_n[0]}]
 set_property IOSTANDARD LVDS_25 [get_ports {sfp_tx_p[0]}]
 set_property IOSTANDARD LVDS_25 [get_ports {sfp_tx_n[0]}]
 
@@ -269,11 +267,11 @@ set_property PACKAGE_PIN AA19 [get_ports pdts_sfp_tx_dis]
 
 
 
-set_property PIO_DIRECTION INPUT [get_ports {cdr_clk_clk_p[0]}]
-set_property PIO_DIRECTION INPUT [get_ports {cdr_clk_clk_n[0]}]
 
-set_property DIFF_TERM TRUE [get_ports {cdr_clk_clk_p[0]}]
-set_property DIFF_TERM TRUE [get_ports {cdr_clk_clk_n[0]}]
 
 #set_property IS_D_INVERTED 1'b1 [get_cells zsys_i/pdts_endpoint/pdts_endpoint_top_0/U0/ep/rxcdr/sm/iff]
 
+
+set_property PACKAGE_PIN W17 [get_ports cdr_clk_clk_p]
+
+set_property IOSTANDARD LVDS_25 [get_ports cdr_clk_clk_p]

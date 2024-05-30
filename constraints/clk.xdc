@@ -28,10 +28,10 @@ set_false_path -to [get_pins -hierarchical -regexp {.*zsys_i/larpix_trig/larpix_
 set_false_path -to [get_pins -hierarchical -regexp {.*zsys_i/larpix_trig/larpix_trig_gen_0/U0/trig_len_meta_reg\[[0-9]\]*/D.*}]
 set_false_path -to [get_pins -hierarchical -regexp {.*zsys_i/larpix_trig/larpix_trig_gen_0/U0/trig_len_meta_reg\[[0-9]\]*/D.*}]
 
-set_property PACKAGE_PIN W17 [get_ports {cdr_clk_clk_p[0]}]
 
 #J2 header: pin 7
 #J2 header: pin 8
+
 
 
 

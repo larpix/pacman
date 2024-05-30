@@ -12,3 +12,4 @@ set_property IOSTANDARD LVCMOS33 [get_ports {usr_t[2]}]
 set_property PACKAGE_PIN M17 [get_ports {usr_t[3]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {usr_t[3]}]
 #
+
