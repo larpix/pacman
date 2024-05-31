@@ -73,8 +73,8 @@ begin
       ready           => rdy,
       tstamp          => tstamp,
       sync            => pdts_sync,
-      sync_stb        => pdts_sync_stb,
-      debug            => pdts_debug
+      sync_stb        => pdts_sync_stb
+--      debug            => pdts_debug
       );
 
   decode: entity work.pdts_cmd_decoder
