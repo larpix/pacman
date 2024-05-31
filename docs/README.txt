@@ -49,6 +49,8 @@ $source /<Path_to_Xilinx_Installation>/Vivado/2020.2/settings64.sh
 
 # create the Xilinx project (xpr) from tcl file:
 $vivado -mode batch -source tcl/recreate_xpr.tcl
+#To create xpr for rev4 pacman with timing system firmware 
+vivado -mode batch -source tcl/recreate_pdts_7.2.1.tcl 
 
 #Open vivado GUI and run Reports->Report IP Status and Upgrade FIFO IP
 # Manual updates to Block diagram required for:
@@ -61,6 +63,8 @@ $vivado -mode batch -source tcl/recreate_xpr.tcl
 #PRIYA -- build_pdts.tcl broken, generate bitstream using GUI
 $vivado -mode batch -source tcl/build_xpr.tcl
 
+#Build vivado project for rev4 with timing system firmware
+vivado -mode batch -source tcl/build_pdts_7.2.1.tcl
 A successful build produces the file:
 products/zsys_wrapper.hdf (Vivado 2020.2 produces file zsys_wrapper.xsa)
 
