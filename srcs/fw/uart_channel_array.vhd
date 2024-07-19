@@ -177,6 +177,11 @@ begin
   UART_RX_BUSY <= or UART_RX_BUSY_i;
   UART_TX_BUSY <= or UART_TX_BUSY_i;  
   larpix_uart_gen: for I in 0 to TOTAL_CHANNELS-1 generate
+    UNUSED_CHANNELS: if( I < 32)  and (I mod 4 = 0) generate
+      UART_TX (I)       <= '1';
+      UART_RX_BUSY_i(I) <= '0';
+      UART_TX_BUSY_i(I) <= '0';    
+    else generate
     larpix_uart_channel : component uart_channel
       port map (
         ACLK                   => ACLK,
@@ -220,7 +225,7 @@ begin
         UART_RX_BUSY           => UART_RX_BUSY_i(I),
         UART_TX_BUSY           => UART_TX_BUSY_i(I)
         );
-
+    end generate;
     obuft_out_inst : component obuft_out
       port map(
         i  =>UART_TX(I),

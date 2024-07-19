@@ -7,8 +7,8 @@ orig_stdout = sys.stdout
 f = open('uart_channel_top.vhd', 'w')
 sys.stdout = f
 
-tiles    = 8; #10; #8;
-channels = 32; #40; #32;
+tiles    = 10; #10; #8;
+channels = 40; #40; #32;
 
 #TILES - OUTPUT TO PROCESSOR
 m_axis_interface_to_processor = {
@@ -62,8 +62,8 @@ use work.uart_types_pkg.all;
 
 entity uart_channel_top is
   generic(
-    TOTAL_CHANNELS : integer := 32;
-    TOTAL_TILES    : integer := 8
+    TOTAL_CHANNELS : integer := 40; 
+    TOTAL_TILES    : integer := 10
     );
    port (
     ACLK : in STD_LOGIC;
