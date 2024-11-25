@@ -8,7 +8,7 @@ ENTITY uart_tx IS
   GENERIC (
     CLK_HZ : INTEGER := 100000000;
     CLKOUT_HZ : INTEGER := 10000000;
-    DATA_WIDTH   : INTEGER
+    DATA_WIDTH   : INTEGER := 64
     );
   PORT (
     CLK          : IN  STD_LOGIC;

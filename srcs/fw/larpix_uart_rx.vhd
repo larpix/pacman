@@ -21,7 +21,7 @@ entity larpix_uart_rx is
     MCLK : in std_logic;
     CLKIN_RATIO : in std_logic_vector (7 downto 0);
     CLKIN_PHASE : in std_logic_vector (7 downto 0);    
-    PACMAN_TS : in unsigned (63 downto 0);
+    PACMAN_TS : in std_logic_vector (63 downto 0);
     UART_RX_IN : in std_logic;
     UART_RX_BUSY : out std_logic;
 
@@ -49,7 +49,7 @@ architecture arch_imp of larpix_uart_rx is
     port (
       --C_M_AXIS_TDATA_CHANNEL  : in std_logic_vector(7 downto 0) := C_CHANNEL;
       
-      timestamp : in unsigned(63 downto 0) := (others => '0');
+      timestamp : in std_logic_vector(63 downto 0) := (others => '0');
       data_LArPix : in std_logic_vector(C_LARPIX_DATA_WIDTH-1 downto 0);
       data_update_LArPix : in std_logic;
       busy_LArPix : out std_logic;
@@ -92,8 +92,8 @@ architecture arch_imp of larpix_uart_rx is
   signal larpix_update : std_logic;
   signal larpix_busy : std_logic;
 
-  signal pacman_ts_meta : unsigned(PACMAN_TS'length-1 downto 0);
-  signal pacman_ts_aclk : unsigned(PACMAN_TS'length-1 downto 0);
+  signal pacman_ts_meta : std_logic_vector(PACMAN_TS'length-1 downto 0);
+  signal pacman_ts_aclk : std_logic_vector(PACMAN_TS'length-1 downto 0);
 
   attribute ASYNC_REG of pacman_ts_meta: signal is "TRUE";
   attribute ASYNC_REG of pacman_ts_aclk: signal is "TRUE";

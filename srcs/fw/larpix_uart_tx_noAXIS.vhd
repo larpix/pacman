@@ -3,14 +3,14 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 
-entity larpix_uart_tx is
+entity larpix_uart_tx_noAXIS is
   generic (
     C_CLK_HZ : integer := 100000000;
     C_CLKOUT_HZ : integer := 10000000;
     C_S_AXIS_TDATA_WIDTH : integer := 128;
     C_LARPIX_DATA_WIDTH : integer := 64;
-    C_CHANNEL : std_logic_vector(7 downto 0) := x"FF";
-    C_DATA_TYPE : std_logic_vector(7 downto 0) := x"44";
+--    C_CHANNEL : std_logic_vector(7 downto 0) := x"FF";
+--    C_DATA_TYPE : std_logic_vector(7 downto 0) := x"44";
     C_FIFO_COUNT_WIDTH : integer := 9
     );
   port (
@@ -27,42 +27,16 @@ entity larpix_uart_tx is
     CLKOUT_PHASE : in std_logic_vector (3 downto 0);    
     FIFO_COUNT : out std_logic_vector (C_FIFO_COUNT_WIDTH-1 downto 0);
     UART_TX_BUSY : out std_logic;
-    
-    -- axi-stream slave
-    S_AXIS_TREADY : out std_logic;
-    S_AXIS_TDATA : in std_logic_vector(C_S_AXIS_TDATA_WIDTH-1 downto 0);
-    S_AXIS_TSTRB : in std_logic_vector((C_S_AXIS_TDATA_WIDTH/8)-1 downto 0);
-    S_AXIS_TKEEP : in std_logic_vector((C_S_AXIS_TDATA_WIDTH/8)-1 downto 0);
-    S_AXIS_TLAST : in std_logic;
-    S_AXIS_TVALID : in std_logic
+    larpix_update : in std_logic;
+    larpix_data : in std_logic_vector ( C_LARPIX_DATA_WIDTH-1 downto 0 )
+
+
     );
-end larpix_uart_tx;
+end larpix_uart_tx_noAXIS;
 
-architecture arch_imp of larpix_uart_tx is
+architecture arch_imp of larpix_uart_tx_noAXIS is
   
-  component axi_stream_to_larpix is
-    generic (
-      C_S_AXIS_TDATA_WIDTH : integer := C_S_AXIS_TDATA_WIDTH;
-      C_LARPIX_DATA_WIDTH : integer := C_LARPIX_DATA_WIDTH;
-      C_CHANNEL : std_logic_vector(7 downto 0) := C_CHANNEL;
-      C_DATA_TYPE : std_logic_vector(7 downto 0) := C_DATA_TYPE
-      );
-    port (
-      --C_CHANNEL : in std_logic_vector(7 downto 0) := C_CHANNEL;
-      data_LArPix         : out std_logic_vector(C_LARPIX_DATA_WIDTH-1 downto 0);
-      data_update_LArPix  : out std_logic;
-      busy_LArPix         : in std_logic;
-      S_AXIS_ACLK         : in std_logic;
-      S_AXIS_ARESETN      : in std_logic;
-      S_AXIS_TREADY       : out std_logic;
-      S_AXIS_TDATA        : in std_logic_vector(C_S_AXIS_TDATA_WIDTH-1 downto 0);
-      S_AXIS_TSTRB        : in std_logic_vector((C_S_AXIS_TDATA_WIDTH/8)-1 downto 0);
-      S_AXIS_TKEEP        : in std_logic_vector((C_S_AXIS_TDATA_WIDTH/8)-1 downto 0);
-      S_AXIS_TLAST        : in std_logic;
-      S_AXIS_TVALID       : in std_logic
-      );
-  end component axi_stream_to_larpix;
-
+ 
   component uart_tx is
     generic (
       CLK_HZ : integer := C_CLK_HZ;
@@ -104,8 +78,6 @@ architecture arch_imp of larpix_uart_tx is
 
   signal rst : std_logic;
 
-  signal larpix_update : std_logic;
-  signal larpix_data : std_logic_vector ( C_LARPIX_DATA_WIDTH-1 downto 0 );
 
   signal fifo_busy : std_logic;
   signal fifo_full : std_logic;
@@ -115,6 +87,7 @@ architecture arch_imp of larpix_uart_tx is
   signal fifo_empty : std_logic;
   signal fifo_valid : std_logic;
 
+  signal uart_update : std_logic;
   signal uart_busy : std_logic;
   signal uart_data : std_logic_vector ( C_LARPIX_DATA_WIDTH-1 downto 0 );
 
@@ -123,21 +96,7 @@ begin
   UART_TX_BUSY <= uart_busy;
   rst <= not ARESETN;
 
-  -- axi-stream receiver
-  axi_stream_to_larpix_inst : axi_stream_to_larpix port map(
-    data_LArPix => larpix_data,
-    data_update_LArPix => larpix_update,
-    busy_LArPix => fifo_busy,
-    S_AXIS_ACLK => ACLK,
-    S_AXIS_ARESETN => ARESETN,
-    S_AXIS_TREADY => S_AXIS_TREADY,
-    S_AXIS_TDATA => S_AXIS_TDATA,
-    S_AXIS_TSTRB => S_AXIS_TSTRB,
-    S_AXIS_TKEEP => S_AXIS_TKEEP,
-    S_AXIS_TLAST => S_AXIS_TLAST,
-    S_AXIS_TVALID => S_AXIS_TVALID
-    );
-
+  
   -- clock domain crossing FIFO
   fifo_rd_en <= (not uart_busy) and (not fifo_empty) and (not fifo_valid);
   fifo_busy <= fifo_full or fifo_almost_full or fifo_wr_ack;

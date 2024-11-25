@@ -5,8 +5,8 @@ set_false_path -from [get_pins {{zsys_i/larpix_trig/axi_lite_reg_space/axi_lite_
 
 set_property IOSTANDARD LVCMOS25 [get_ports pdts_sfp_tx_dis]
 set_property IOSTANDARD LVCMOS25 [get_ports sfp_los]
-set_property IOSTANDARD LVCMOS25 [get_ports cdr_los]
-set_property IOSTANDARD LVCMOS25 [get_ports cdr_lol]
+set_property IOSTANDARD LVCMOS33 [get_ports cdr_los]
+set_property IOSTANDARD LVCMOS33 [get_ports cdr_lol]
 
 
 #set_property PACKAGE_PIN AA22 [get_ports {sfp_clk_p}]
@@ -31,6 +31,8 @@ set_false_path -to [get_pins -hierarchical -regexp {.*zsys_i/larpix_trig/larpix_
 
 #J2 header: pin 7
 #J2 header: pin 8
+
+
 
 
 

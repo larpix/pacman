@@ -12,14 +12,14 @@ entity larpix_clk_to_axi_stream is
     );
   port (
     -- mclk'd timestamps
-    TIMESTAMP : in unsigned(63 downto 0) := (others => '0');
-    TIMESTAMP_PREV : in unsigned(63 downto 0) := (others => '0');
+    TIMESTAMP : in std_logic_vector(63 downto 0) := (others => '0');
+    TIMESTAMP_PREV : in std_logic_vector(63 downto 0) := (others => '0');
     TIMESTAMP_SYNC : in std_logic;
     CLK_SRC : in std_logic;
 
     -- heartbeat config
     HB_EN : in std_logic;
-    HB_CYCLES : in unsigned(31 downto 0);
+    HB_CYCLES : in std_logic_vector(31 downto 0);
 
     -- axi-stream master
     M_AXIS_ACLK	        : in std_logic;
@@ -46,11 +46,11 @@ architecture implementation of larpix_clk_to_axi_stream is
 
 
   signal mclk_prev : std_logic;
-  signal timestamp_meta : unsigned(63 downto 0) := (others => '0');
-  signal timestamp_aclk : unsigned(63 downto 0) := (others => '0');
+  signal timestamp_meta : std_logic_vector(63 downto 0) := (others => '0');
+  signal timestamp_aclk : std_logic_vector(63 downto 0) := (others => '0');
   
-  signal timestamp_prev_meta : unsigned(63 downto 0) := (others => '0');
-  signal timestamp_prev_aclk : unsigned(63 downto 0) := (others => '0');
+  signal timestamp_prev_meta : std_logic_vector(63 downto 0) := (others => '0');
+  signal timestamp_prev_aclk : std_logic_vector(63 downto 0) := (others => '0');
   signal timestamp_sync_meta : std_logic;
   signal timestamp_sync_aclk : std_logic;
   signal timestamp_sync_prev : std_logic;
@@ -104,7 +104,7 @@ begin
       elsif (hb_counter > 0) then
         hb_counter <= hb_counter - 1;
       elsif (hb_counter = 0 and HB_EN = '1') then
-        hb_counter <= HB_CYCLES;
+        hb_counter <= unsigned(HB_CYCLES);
       end if;
     end if;
   end process heartbeat_gen;

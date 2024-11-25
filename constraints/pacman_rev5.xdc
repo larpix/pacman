@@ -1,3 +1,4 @@
+set_property PACKAGE_PIN W17 [get_ports cdr_clk_clk_p]
 
 # pacman-v1-rev4
 # IO settings
@@ -151,12 +152,10 @@ set_property IOSTANDARD LVCMOS33 [get_ports {TRIG[0]}]
 
 
 set_property IOSTANDARD LVCMOS33 [get_ports TRIG1_IN]
-set_property IOSTANDARD LVCMOS33 [get_ports HW_SYNC_TRIG]
 set_property IOSTANDARD LVCMOS33 [get_ports UART_TX_BUSY]
 set_property IOSTANDARD LVCMOS33 [get_ports UART_RX_BUSY]
 set_property PACKAGE_PIN J16 [get_ports {ANALOG_PWR_EN[0]}]
 set_property PACKAGE_PIN C19 [get_ports CLK]
-set_property PACKAGE_PIN K18 [get_ports HW_SYNC_TRIG]
 set_property PACKAGE_PIN C20 [get_ports {MISO_0[0]}]
 set_property PACKAGE_PIN D20 [get_ports {MISO_0[1]}]
 set_property PACKAGE_PIN G16 [get_ports {MISO_0[2]}]
@@ -238,8 +237,8 @@ set_property PACKAGE_PIN D15 [get_ports {MOSI_0[34]}]
 set_property PACKAGE_PIN E15 [get_ports {MOSI_0[35]}]
 set_property PACKAGE_PIN Y11 [get_ports {MOSI_0[36]}]
 set_property PACKAGE_PIN Y10 [get_ports {MOSI_0[37]}]
-set_property PACKAGE_PIN V8  [get_ports {MOSI_0[38]}]
-set_property PACKAGE_PIN W8  [get_ports {MOSI_0[39]}]
+set_property PACKAGE_PIN V8 [get_ports {MOSI_0[38]}]
+set_property PACKAGE_PIN W8 [get_ports {MOSI_0[39]}]
 
 set_property PACKAGE_PIN G21 [get_ports {TILE_EN[0]}]
 set_property PACKAGE_PIN P18 [get_ports {TILE_EN[1]}]
@@ -300,7 +299,7 @@ set_property PACKAGE_PIN R19 [get_ports UART_TX_BUSY]
 
 
 
-set_property PACKAGE_PIN D18 [get_ports {RESETN[0]}]
+#set_property PACKAGE_PIN D18 [get_ports {RESETN[0]}]
 
 
 
@@ -312,8 +311,8 @@ set_property IOSTANDARD LVDS_25 [get_ports {sfp_tx_n[0]}]
 
 
 
-set_property PACKAGE_PIN Y18 [get_ports cdr_lol]
-set_property PACKAGE_PIN AA18 [get_ports cdr_los]
+set_property PACKAGE_PIN V5 [get_ports cdr_lol]
+set_property PACKAGE_PIN V4 [get_ports cdr_los]
 set_property PACKAGE_PIN AB21 [get_ports sfp_los]
 
 #sfp_tdp
@@ -330,6 +329,37 @@ set_property PACKAGE_PIN AA19 [get_ports pdts_sfp_tx_dis]
 #set_property IS_D_INVERTED 1'b1 [get_cells zsys_i/pdts_endpoint/pdts_endpoint_top_0/U0/ep/rxcdr/sm/iff]
 
 
-set_property PACKAGE_PIN W17 [get_ports cdr_clk_clk_p]
 
 set_property IOSTANDARD LVDS_25 [get_ports cdr_clk_clk_p]
+
+
+set_property IOSTANDARD LVCMOS33 [get_ports HW_SYNC_TRIG]
+set_property PACKAGE_PIN K18 [get_ports HW_SYNC_TRIG]
+
+#REV5 TILE SYNC SIGNALS
+set_property IOSTANDARD LVCMOS33 [get_ports {TILE_SYNC[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {TILE_SYNC[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {TILE_SYNC[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {TILE_SYNC[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {TILE_SYNC[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {TILE_SYNC[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {TILE_SYNC[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {TILE_SYNC[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {TILE_SYNC[8]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {TILE_SYNC[9]}]
+
+
+
+
+set_property PACKAGE_PIN D18 [get_ports {TILE_SYNC[0]}]
+set_property PACKAGE_PIN N17 [get_ports {TILE_SYNC[4]}]
+set_property PACKAGE_PIN N18 [get_ports {TILE_SYNC[5]}]
+set_property PACKAGE_PIN J21 [get_ports {TILE_SYNC[6]}]
+set_property PACKAGE_PIN J22 [get_ports {TILE_SYNC[7]}]
+set_property PACKAGE_PIN J20 [get_ports {TILE_SYNC[8]}]
+set_property PACKAGE_PIN K21 [get_ports {TILE_SYNC[9]}]
+
+
+set_property PACKAGE_PIN M17 [get_ports {TILE_SYNC[3]}]
+set_property PACKAGE_PIN L17 [get_ports {TILE_SYNC[2]}]
+set_property PACKAGE_PIN J17 [get_ports {TILE_SYNC[1]}]
