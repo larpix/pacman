@@ -43,9 +43,15 @@ The installation of all of these tools for Ubuntu 18.04 is detailed in tools/ins
 # clone and enter the git repository
 $git clone https://github.com/larpix/pacman.git
 $cd pacman
+git submodule init
+git submodule update
 
 # setup vivado:
 $source /<Path_to_Xilinx_Installation>/Vivado/2020.2/settings64.sh
+##Create build project for pacman_rev5##
+vivado -mode batch -source tcl/recreate_pacman_rev5.tcl
+vivado -mode batch -source tcl/build_pacman_rev5.tcl
+#############
 
 # create the Xilinx project (xpr) from tcl file:
 $vivado -mode batch -source tcl/recreate_xpr.tcl
