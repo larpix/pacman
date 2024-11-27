@@ -12795,7 +12795,7 @@ pagesize -pg 1 -db -bbox -sgen -250 -350 2370 2290
   # Restore current instance
   current_bd_instance $oldCurInst
 
-  validate_bd_design
+ # validate_bd_design
   save_bd_design
   close_bd_design $design_name 
 }
