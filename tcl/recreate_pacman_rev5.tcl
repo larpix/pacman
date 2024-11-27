@@ -1884,33 +1884,6 @@ add_files -norecurse -fileset $obj $files
 
 # Import local files from the original project
 set files [list \
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_axi4stream_vip_0_0/sim/test_atg_axi4stream_vip_0_0_pkg.sv" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_axis_broadcaster_0_0/hdl/tdata_test_atg_axis_broadcaster_0_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_axis_subset_converter_0_0/hdl/tdata_test_atg_axis_subset_converter_0_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_axis_subset_converter_0_0/hdl/tdest_test_atg_axis_subset_converter_0_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_axis_broadcaster_0_0/sim/test_atg_axis_broadcaster_0_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_axis_subset_converter_0_0/sim/test_atg_axis_subset_converter_0_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m00_data_fifo_0/sim/test_atg_m00_data_fifo_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m00_regslice_0/sim/test_atg_m00_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m01_regslice_0/sim/test_atg_m01_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m02_regslice_0/sim/test_atg_m02_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m03_regslice_0/sim/test_atg_m03_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m04_regslice_0/sim/test_atg_m04_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m05_regslice_0/sim/test_atg_m05_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m06_regslice_0/sim/test_atg_m06_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m07_regslice_0/sim/test_atg_m07_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m08_regslice_0/sim/test_atg_m08_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m09_regslice_0/sim/test_atg_m09_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m10_regslice_0/sim/test_atg_m10_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m11_regslice_0/sim/test_atg_m11_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m12_regslice_0/sim/test_atg_m12_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m13_regslice_0/sim/test_atg_m13_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m14_regslice_0/sim/test_atg_m14_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m15_regslice_0/sim/test_atg_m15_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m16_regslice_0/sim/test_atg_m16_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m17_regslice_0/sim/test_atg_m17_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m18_regslice_0/sim/test_atg_m18_regslice_0.v" ]\
- [file normalize "${origin_dir}/../archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m19_regslice_0/sim/test_atg_m19_regslice_0.v" ]\
  [file normalize "${origin_dir}/srcs/fw/tb/axi_loopback_tb.vhd"]\
  [file normalize "${origin_dir}/srcs/fw/tb/axi_stream_to_larpix_tb.vhd"]\
  [file normalize "${origin_dir}/srcs/fw/tb/larpix_clk_to_axi_stream_tb.vhd"]\
