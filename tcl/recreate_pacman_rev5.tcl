@@ -300,40 +300,77 @@ proc checkRequiredFiles { origin_dir} {
    "$origin_dir/constraints/clk.xdc" \
    "$origin_dir/constraints/gpio.xdc" \
    "$origin_dir/constraints/pacman_rev5.xdc" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_axi4stream_vip_0_0/sim/test_atg_axi4stream_vip_0_0_pkg.sv" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_axis_broadcaster_0_0/hdl/tdata_test_atg_axis_broadcaster_0_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_axis_broadcaster_0_0/sim/test_atg_axis_broadcaster_0_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m00_data_fifo_0/sim/test_atg_m00_data_fifo_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m00_regslice_0/sim/test_atg_m00_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m01_regslice_0/sim/test_atg_m01_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m02_regslice_0/sim/test_atg_m02_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m03_regslice_0/sim/test_atg_m03_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m04_regslice_0/sim/test_atg_m04_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m05_regslice_0/sim/test_atg_m05_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m06_regslice_0/sim/test_atg_m06_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m07_regslice_0/sim/test_atg_m07_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m08_regslice_0/sim/test_atg_m08_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m09_regslice_0/sim/test_atg_m09_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m10_regslice_0/sim/test_atg_m10_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m11_regslice_0/sim/test_atg_m11_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m12_regslice_0/sim/test_atg_m12_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m13_regslice_0/sim/test_atg_m13_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m14_regslice_0/sim/test_atg_m14_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m15_regslice_0/sim/test_atg_m15_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m16_regslice_0/sim/test_atg_m16_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m17_regslice_0/sim/test_atg_m17_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m18_regslice_0/sim/test_atg_m18_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m19_regslice_0/sim/test_atg_m19_regslice_0.v" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/axi_loopback_tb.vhd" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/axi_stream_to_larpix_tb.vhd" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/larpix_clk_to_axi_stream_tb.vhd" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/larpix_counter_tb.vhd" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/larpix_mclk_sel_tb.vhd" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/larpix_periodic_trig_gen_tb.vhd" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/larpix_reset_gen_tb.vhd" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/larpix_trig_gen_tb.vhd" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/larpix_trig_to_axi_stream_tb.vhd" \
-   "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/uart_loopback_tb.vhd" \
+   "${origin_dir}/srcs/fw_sim/src/test_atg_axi4stream_vip_0_0_pkg.sv" \
+"${origin_dir}/srcs/fw_sim/src/tdata_test_atg_axis_broadcaster_0_0.v" \
+"${origin_dir}/srcs/fw_sim/src/tdata_test_atg_axis_subset_converter_0_0.v" \
+"${origin_dir}/srcs/fw_sim/src/tdest_test_atg_axis_subset_converter_0_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_axis_broadcaster_0_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_axis_subset_converter_0_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m00_data_fifo_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m00_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m01_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m02_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m03_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m04_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m05_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m06_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m07_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m08_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m09_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m10_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m11_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m12_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m13_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m14_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m15_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m16_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m17_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m18_regslice_0.v" \
+"${origin_dir}/srcs/fw_sim/src/test_atg_m19_regslice_0.v" \
+"${origin_dir}/srcs/fw/tb/axi_loopback_tb.vhd"\
+"${origin_dir}/srcs/fw/tb/axi_stream_to_larpix_tb.vhd"\
+"${origin_dir}/srcs/fw/tb/larpix_clk_to_axi_stream_tb.vhd"\
+"${origin_dir}/srcs/fw/tb/larpix_counter_tb.vhd"\
+"${origin_dir}/srcs/fw/tb/larpix_mclk_sel_tb.vhd"\
+"${origin_dir}/srcs/fw/tb/larpix_periodic_trig_gen_tb.vhd"\
+"${origin_dir}/srcs/fw/tb/larpix_reset_gen_tb.vhd"\
+"${origin_dir}/srcs/fw/tb/larpix_trig_gen_tb.vhd"\
+"${origin_dir}/srcs/fw/tb/larpix_trig_to_axi_stream_tb.vhd"\
+"${origin_dir}/srcs/fw/tb/uart_loopback_tb.vhd"\
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_axi4stream_vip_0_0/sim/test_atg_axi4stream_vip_0_0_pkg.sv" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_axis_broadcaster_0_0/hdl/tdata_test_atg_axis_broadcaster_0_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_axis_broadcaster_0_0/sim/test_atg_axis_broadcaster_0_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m00_data_fifo_0/sim/test_atg_m00_data_fifo_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m00_regslice_0/sim/test_atg_m00_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m01_regslice_0/sim/test_atg_m01_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m02_regslice_0/sim/test_atg_m02_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m03_regslice_0/sim/test_atg_m03_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m04_regslice_0/sim/test_atg_m04_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m05_regslice_0/sim/test_atg_m05_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m06_regslice_0/sim/test_atg_m06_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m07_regslice_0/sim/test_atg_m07_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m08_regslice_0/sim/test_atg_m08_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m09_regslice_0/sim/test_atg_m09_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m10_regslice_0/sim/test_atg_m10_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m11_regslice_0/sim/test_atg_m11_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m12_regslice_0/sim/test_atg_m12_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m13_regslice_0/sim/test_atg_m13_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m14_regslice_0/sim/test_atg_m14_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m15_regslice_0/sim/test_atg_m15_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m16_regslice_0/sim/test_atg_m16_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m17_regslice_0/sim/test_atg_m17_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m18_regslice_0/sim/test_atg_m18_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.ip_user_files/bd/test_atg/ip/test_atg_m19_regslice_0/sim/test_atg_m19_regslice_0.v" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/axi_loopback_tb.vhd" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/axi_stream_to_larpix_tb.vhd" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/larpix_clk_to_axi_stream_tb.vhd" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/larpix_counter_tb.vhd" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/larpix_mclk_sel_tb.vhd" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/larpix_periodic_trig_gen_tb.vhd" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/larpix_reset_gen_tb.vhd" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/larpix_trig_gen_tb.vhd" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/larpix_trig_to_axi_stream_tb.vhd" \
+   # "/home/psundara/DUNE/GIT/pacman/pacman_rev5/archive/vivado_prj/pacman-rev5-10tile/pacman-rev4-dtsbutler-fw/pacman-rev4-dtsbutler-fw.srcs/sim_1/imports/fw/tb/uart_loopback_tb.vhd" \
   ]
   foreach ifile $files {
     if { ![file isfile $ifile] } {
@@ -1878,12 +1915,34 @@ set files [list \
  [file normalize "${origin_dir}/srcs/fw_sim/src/ex_sim_axi4stream_vip_mst_0_pkg.sv"] \
  [file normalize "${origin_dir}/srcs/fw_sim/src/ex_sim_axi4stream_vip_passthrough_0_pkg.sv"] \
  [file normalize "${origin_dir}/srcs/fw_sim/src/ex_sim_axi4stream_vip_slv_0_pkg.sv"] \
- [file normalize "${origin_dir}/srcs/fw_sim/src/tb_axis_vip.sv"] \
-]
-add_files -norecurse -fileset $obj $files
-
-# Import local files from the original project
-set files [list \
+	       [file normalize "${origin_dir}/srcs/fw_sim/src/tb_axis_vip.sv"] \
+	       [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_axi4stream_vip_0_0_pkg.sv"] \
+	   [file normalize "${origin_dir}/srcs/fw_sim/src/tdata_test_atg_axis_broadcaster_0_0.v"] \
+ [file normalize "${origin_dir}/srcs/fw_sim/src/tdata_test_atg_axis_subset_converter_0_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/tdest_test_atg_axis_subset_converter_0_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_axis_broadcaster_0_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_axis_subset_converter_0_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m00_data_fifo_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m00_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m01_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m02_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m03_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m04_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m05_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m06_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m07_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m08_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m09_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m10_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m11_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m12_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m13_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m14_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m15_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m16_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m17_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m18_regslice_0.v" ]\
+ [file normalize "${origin_dir}/srcs/fw_sim/src/test_atg_m19_regslice_0.v" ]\
  [file normalize "${origin_dir}/srcs/fw/tb/axi_loopback_tb.vhd"]\
  [file normalize "${origin_dir}/srcs/fw/tb/axi_stream_to_larpix_tb.vhd"]\
  [file normalize "${origin_dir}/srcs/fw/tb/larpix_clk_to_axi_stream_tb.vhd"]\
@@ -1894,8 +1953,14 @@ set files [list \
  [file normalize "${origin_dir}/srcs/fw/tb/larpix_trig_gen_tb.vhd"]\
  [file normalize "${origin_dir}/srcs/fw/tb/larpix_trig_to_axi_stream_tb.vhd"]\
  [file normalize "${origin_dir}/srcs/fw/tb/uart_loopback_tb.vhd"]\
-]
-set imported_files [import_files -fileset sim_1 $files]
+    ]
+add_files -norecurse -fileset $obj $files
+
+# Import local files from the original project
+# set files [list \
+ 
+# ]
+# set imported_files [import_files -fileset sim_1 $files]
 
 # Set 'sim_1' fileset file properties for remote files
 set file "$origin_dir/../../../../../../../../../tools/Xilinx/Vivado/2020.2/data/xilinx_vip/hdl/axi4stream_vip_pkg.sv"
@@ -1965,8 +2030,8 @@ set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
 
 # Set 'sim_1' fileset file properties for local files
-set file "sim/test_atg_axi4stream_vip_0_0_pkg.sv"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
+set file "$origin_dir/srcs/fw_sim/src/test_atg_axi4stream_vip_0_0_pkg.sv"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
 set_property -name "file_type" -value "SystemVerilog" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
@@ -1977,8 +2042,8 @@ set_property -name "used_in_implementation" -value "1" -objects $file_obj
 set_property -name "used_in_simulation" -value "1" -objects $file_obj
 set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "hdl/tdata_test_atg_axis_broadcaster_0_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
+set file "$origin_dir/srcs/fw_sim/src/tdata_test_atg_axis_broadcaster_0_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
 set_property -name "file_type" -value "Verilog" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
@@ -1989,8 +2054,8 @@ set_property -name "used_in_implementation" -value "1" -objects $file_obj
 set_property -name "used_in_simulation" -value "1" -objects $file_obj
 set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "hdl/tdata_test_atg_axis_subset_converter_0_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
+set file "$origin_dir/srcs/fw_sim/src/tdata_test_atg_axis_subset_converter_0_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
 set_property -name "file_type" -value "Verilog" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
@@ -2001,285 +2066,8 @@ set_property -name "used_in_implementation" -value "1" -objects $file_obj
 set_property -name "used_in_simulation" -value "1" -objects $file_obj
 set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "hdl/tdest_test_atg_axis_subset_converter_0_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-
-set file "sim/test_atg_axis_broadcaster_0_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_axis_subset_converter_0_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m00_data_fifo_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m00_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m01_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m02_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m03_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m04_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m05_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m06_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m07_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m08_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m09_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m10_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m11_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m12_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m13_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m14_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m15_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m16_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m17_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m18_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
-set_property -name "file_type" -value "Verilog" -objects $file_obj
-set_property -name "is_enabled" -value "1" -objects $file_obj
-set_property -name "is_global_include" -value "0" -objects $file_obj
-set_property -name "library" -value "xil_defaultlib" -objects $file_obj
-set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
-set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
-set_property -name "used_in_implementation" -value "1" -objects $file_obj
-set_property -name "used_in_simulation" -value "1" -objects $file_obj
-set_property -name "used_in_synthesis" -value "1" -objects $file_obj
-
-set file "sim/test_atg_m19_regslice_0.v"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
+set file "$origin_dir/srcs/fw_sim/src/tdest_test_atg_axis_subset_converter_0_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
 set_property -name "file_type" -value "Verilog" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
@@ -2291,8 +2079,285 @@ set_property -name "used_in_simulation" -value "1" -objects $file_obj
 set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
 
-set file "tb/axi_loopback_tb.vhd"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
+set file "$origin_dir/srcs/fw_sim/src/test_atg_axis_broadcaster_0_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_axis_subset_converter_0_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m00_data_fifo_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m00_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m01_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m02_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src//test_atg_m03_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m04_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m05_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m06_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m07_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m08_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m09_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m10_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m11_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m12_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m13_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m14_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m15_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m16_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m17_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m18_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+set file "$origin_dir/srcs/fw_sim/src/test_atg_m19_regslice_0.v"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
+set_property -name "file_type" -value "Verilog" -objects $file_obj
+set_property -name "is_enabled" -value "1" -objects $file_obj
+set_property -name "is_global_include" -value "0" -objects $file_obj
+set_property -name "library" -value "xil_defaultlib" -objects $file_obj
+set_property -name "path_mode" -value "RelativeFirst" -objects $file_obj
+set_property -name "used_in" -value "synthesis implementation simulation" -objects $file_obj
+set_property -name "used_in_implementation" -value "1" -objects $file_obj
+set_property -name "used_in_simulation" -value "1" -objects $file_obj
+set_property -name "used_in_synthesis" -value "1" -objects $file_obj
+
+
+set file "$origin_dir/srcs/fw/tb/axi_loopback_tb.vhd"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
 set_property -name "file_type" -value "VHDL" -objects $file_obj
 set_property -name "is_enabled" -value "0" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
@@ -2302,8 +2367,8 @@ set_property -name "used_in" -value "synthesis simulation" -objects $file_obj
 set_property -name "used_in_simulation" -value "1" -objects $file_obj
 set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "tb/axi_stream_to_larpix_tb.vhd"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
+set file "$origin_dir/srcs/fw/tb/axi_stream_to_larpix_tb.vhd"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
 set_property -name "file_type" -value "VHDL" -objects $file_obj
 set_property -name "is_enabled" -value "0" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
@@ -2313,8 +2378,8 @@ set_property -name "used_in" -value "synthesis simulation" -objects $file_obj
 set_property -name "used_in_simulation" -value "1" -objects $file_obj
 set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "tb/larpix_clk_to_axi_stream_tb.vhd"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
+set file "$origin_dir/srcs/fw/tb/larpix_clk_to_axi_stream_tb.vhd"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
 set_property -name "file_type" -value "VHDL" -objects $file_obj
 set_property -name "is_enabled" -value "0" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
@@ -2324,8 +2389,8 @@ set_property -name "used_in" -value "synthesis simulation" -objects $file_obj
 set_property -name "used_in_simulation" -value "1" -objects $file_obj
 set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "tb/larpix_counter_tb.vhd"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
+set file "$origin_dir/srcs/fw/tb/larpix_counter_tb.vhd"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
 set_property -name "file_type" -value "VHDL" -objects $file_obj
 set_property -name "is_enabled" -value "0" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
@@ -2335,8 +2400,8 @@ set_property -name "used_in" -value "synthesis simulation" -objects $file_obj
 set_property -name "used_in_simulation" -value "1" -objects $file_obj
 set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "tb/larpix_mclk_sel_tb.vhd"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
+set file "$origin_dir/srcs/fw/tb/larpix_mclk_sel_tb.vhd"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
 set_property -name "file_type" -value "VHDL" -objects $file_obj
 set_property -name "is_enabled" -value "0" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
@@ -2346,8 +2411,8 @@ set_property -name "used_in" -value "synthesis simulation" -objects $file_obj
 set_property -name "used_in_simulation" -value "1" -objects $file_obj
 set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "tb/larpix_periodic_trig_gen_tb.vhd"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
+set file "$origin_dir/srcs/fw/tb/larpix_periodic_trig_gen_tb.vhd"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
 set_property -name "file_type" -value "VHDL" -objects $file_obj
 set_property -name "is_enabled" -value "0" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
@@ -2357,8 +2422,8 @@ set_property -name "used_in" -value "synthesis simulation" -objects $file_obj
 set_property -name "used_in_simulation" -value "1" -objects $file_obj
 set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "tb/larpix_reset_gen_tb.vhd"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
+set file "$origin_dir/srcs/fw/tb/larpix_reset_gen_tb.vhd"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
 set_property -name "file_type" -value "VHDL" -objects $file_obj
 set_property -name "is_enabled" -value "0" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
@@ -2368,8 +2433,8 @@ set_property -name "used_in" -value "synthesis simulation" -objects $file_obj
 set_property -name "used_in_simulation" -value "1" -objects $file_obj
 set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "tb/larpix_trig_gen_tb.vhd"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
+set file "$origin_dir/srcs/fw/tb/larpix_trig_gen_tb.vhd"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
 set_property -name "file_type" -value "VHDL" -objects $file_obj
 set_property -name "is_enabled" -value "0" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
@@ -2379,8 +2444,8 @@ set_property -name "used_in" -value "synthesis simulation" -objects $file_obj
 set_property -name "used_in_simulation" -value "1" -objects $file_obj
 set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "tb/larpix_trig_to_axi_stream_tb.vhd"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
+set file "$origin_dir/srcs/fw/tb/larpix_trig_to_axi_stream_tb.vhd"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
 set_property -name "file_type" -value "VHDL" -objects $file_obj
 set_property -name "is_enabled" -value "0" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
@@ -2390,8 +2455,8 @@ set_property -name "used_in" -value "synthesis simulation" -objects $file_obj
 set_property -name "used_in_simulation" -value "1" -objects $file_obj
 set_property -name "used_in_synthesis" -value "1" -objects $file_obj
 
-set file "tb/uart_loopback_tb.vhd"
-set file_obj [get_files -of_objects [get_filesets sim_1] [list "*$file"]]
+set file "$origin_dir/srcs/fw/tb/uart_loopback_tb.vhd"
+set file_obj [get_files -of_objects [get_filesets sim_1] [list "$file"]]
 set_property -name "file_type" -value "VHDL" -objects $file_obj
 set_property -name "is_enabled" -value "0" -objects $file_obj
 set_property -name "is_global_include" -value "0" -objects $file_obj
