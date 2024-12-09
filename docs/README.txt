@@ -49,20 +49,12 @@ git submodule update
 # setup vivado:
 $source /<Path_to_Xilinx_Installation>/Vivado/2020.2/settings64.sh
 ##Create build project for pacman_rev5##
+When creating project for first time then create directory ``` products-pacman-rev5-fw ```
+mkdir products-pacman-rev5-fw
+
 vivado -mode batch -source tcl/recreate_pacman_rev5.tcl
 vivado -mode batch -source tcl/build_pacman_rev5.tcl
-#############
 
-# create the Xilinx project (xpr) from tcl file:
-$vivado -mode batch -source tcl/recreate_xpr.tcl
-#To create xpr for rev4 pacman with timing system firmware 
-vivado -mode batch -source tcl/recreate_pdts_7.2.1.tcl 
-
-#Open vivado GUI and run Reports->Report IP Status and Upgrade FIFO IP
-# Manual updates to Block diagram required for:
-#RTL IP constants larpix_trig/axi_lite_reg_space/axi_lite_reg_space_0
-#Verify if constants match RTL definitions DO THIS BEFORE SYNTH
->>>>>>> r/oldtimestamp_rev4
 
 # !!!build_xpr.tcl does not work!!! After fixing block diagram IP constants (larpix_clk, axi_reg_lite_space gave us issues), generate bitstream in Vivado GUI
 # sythesize, implement, write bitstream, and export hardware
