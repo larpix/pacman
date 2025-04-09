@@ -5,9 +5,9 @@ use work.uart_types_pkg.all;
 
 entity uart_channel is
   generic (
-    C_CHANNEL : STD_LOGIC_VECTOR ( 7 downto 0 ) := x"FF";
+    C_CHANNEL : STD_LOGIC_VECTOR ( 3 downto 0 ) := x"F";
     C_LARPIX_DATA_WIDTH : integer := 64;
-    C_TILE_ID           : integer := 0;
+    C_TILE_ID           : std_logic_vector(3 downto 0) := x"0";
     C_TOTAL_CHANNELS            : integer := 4
     );
   port (
@@ -82,9 +82,9 @@ architecture arch_imp of uart_channel is
     C_S_AXIS_TDATA_WIDTH        : integer := 128;
     C_LARPIX_DATA_WIDTH         : integer := 64;
     C_TOTAL_CHANNELS            : integer := 4;
-    C_CHANNEL                   : std_logic_vector(7 downto 0) := x"FF";
+    C_CHANNEL                   : std_logic_vector(3 downto 0) := x"F";
     C_DATA_TYPE                 : std_logic_vector(7 downto 0) := x"44";
-    C_TILE_ID                   : integer := 15
+    C_TILE_ID                   : std_logic_vector(3 downto 0) := x"F"
     );
   port (
     --C_CHANNEL           : in std_logic_vector(7 downto 0) := x"FF";
@@ -106,7 +106,7 @@ architecture arch_imp of uart_channel is
     
   component larpix_uart_rx is
     generic (
-      C_CHANNEL : STD_LOGIC_VECTOR ( 7 downto 0 ) := C_CHANNEL
+      C_CHANNEL : STD_LOGIC_VECTOR ( 7 downto 0 ) := C_TILE_ID  & C_CHANNEL
       );
   port (
     ACLK : in STD_LOGIC;
@@ -197,7 +197,7 @@ architecture arch_imp of uart_channel is
   
   signal ACLK_1 : STD_LOGIC;
   signal ARESETN_1 : STD_LOGIC;
-  signal C_CHANNEL_1 : STD_LOGIC_VECTOR ( 7 downto 0 );
+  --signal C_CHANNEL_1 : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal MCLK_1 : STD_LOGIC;
   signal PACMAN_TS_1 : std_logic_vector ( 63 downto 0 );
   signal S_AXIS_1_TDATA : STD_LOGIC_VECTOR ( 127 downto 0 );
@@ -252,7 +252,7 @@ architecture arch_imp of uart_channel is
 begin
   ACLK_1 <= ACLK;
   ARESETN_1 <= ARESETN;
-  C_CHANNEL_1(7 downto 0) <= C_CHANNEL(7 downto 0);
+  --C_CHANNEL_1(3 downto 0) <= C_CHANNEL(3 downto 0);
 
   S_AXIS_1_TDATA(127 downto 0) <= S_AXIS_tdata(127 downto 0);
   S_AXIS_1_TKEEP(15 downto 0) <= S_AXIS_tkeep(15 downto 0);
@@ -291,7 +291,7 @@ begin
   S_AXI_LITE_rvalid(I) <= S_AXI_LITE_1_RVALID(I);
   S_AXI_LITE_wready(I) <= S_AXI_LITE_1_WREADY(I);
 
-  UART_RX_1(I) <= UART_RX(I) xor PISO_POLARITY(I);
+  UART_RX_1(I) <= (UART_RX(I) and TILE_EN) xor PISO_POLARITY(I);
 --  UART_TX(I) <= larpix_uart_tx_0_UART_TX_OUT(I) xor POSI_POLARITY(I);
   larpix_uart_rx_0_M_AXIS_TREADY(I) <= M_AXIS_tready(I);
   
@@ -347,6 +347,9 @@ begin
       );
   
   larpix_uart_rx_0: component larpix_uart_rx
+   generic map(
+          C_CHANNEL => C_TILE_ID & std_logic_vector(to_unsigned(I,4)) --C_CHANNEL        
+          )
      port map (
       ACLK => ACLK_1,
       ARESETN => ARESETN_1,

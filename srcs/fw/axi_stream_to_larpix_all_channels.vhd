@@ -8,9 +8,9 @@ entity axi_stream_to_larpix_all_channels is
     C_S_AXIS_TDATA_WIDTH        : integer := 128;
     C_LARPIX_DATA_WIDTH         : integer := 64;
     C_TOTAL_CHANNELS            : integer := 4;
-    C_CHANNEL                   : std_logic_vector(7 downto 0) := x"FF";
+    C_CHANNEL                   : std_logic_vector(3 downto 0) := x"F";
     C_DATA_TYPE                 : std_logic_vector(7 downto 0) := x"44";
-    C_TILE_ID                   : integer := 15 ;
+    C_TILE_ID                   : std_logic_vector(3 downto 0) := x"F" ;
     C_BROADCAST                 : std_logic_vector(3 downto 0) := x"F"
     );
   port (
@@ -130,7 +130,7 @@ begin
             if (srg_bytes >= C_S_AXIS_TDATA_WIDTH/8) then
               srg_bytes <= srg_bytes - C_S_AXIS_TDATA_WIDTH/8;
               if (srg(word_start + 7 downto word_start) = C_DATA_TYPE(7 downto 0)) then              
-                if(  (to_integer(unsigned(srg(word_start + 15 downto word_start + 12))) = C_TILE_ID) and (to_integer(unsigned(srg(word_start + 11 downto word_start + 8)))) < C_TOTAL_CHANNELS ) then
+                if(  (srg(word_start + 15 downto word_start + 12) = C_TILE_ID) and (to_integer(unsigned(srg(word_start + 11 downto word_start + 8)))) < C_TOTAL_CHANNELS ) then
                   data_out(natural(to_integer(unsigned(srg(word_start + 11 downto word_start + 8)))))(C_LARPIX_DATA_WIDTH-1 downto 0) <= srg(word_end downto word_end - C_LARPIX_DATA_WIDTH + 1);
                   this_channel <= natural(to_integer(unsigned(srg(word_start + 11 downto word_start + 8))));
                   mst_exec_state <= TX_WAIT;    

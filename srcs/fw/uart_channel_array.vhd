@@ -59,10 +59,10 @@ end uart_channel_array;
 architecture arch_imp of uart_channel_array is
   component uart_channel is
   generic (
-    C_CHANNEL : STD_LOGIC_VECTOR ( 7 downto 0 ) := x"FF";
+    C_CHANNEL : STD_LOGIC_VECTOR ( 3 downto 0 ) := x"F";
     C_LARPIX_DATA_WIDTH : integer := 64;
     C_TOTAL_CHANNELS            : integer := 4;
-    C_TILE_ID                   : integer := 0
+    C_TILE_ID                   : std_logic_vector(3 downto 0) := x"0"
     );
   port (
     ACLK : in STD_LOGIC;
@@ -188,7 +188,7 @@ begin
       larpix_uart_channel : component uart_channel
         generic map(
           C_TOTAL_CHANNELS => 4,
-          C_TILE_ID        => I
+          C_TILE_ID        => std_logic_vector(to_unsigned(I,4))
           )
       port map (
         ACLK                   => ACLK,
@@ -231,7 +231,7 @@ begin
       --  UART_TX                => UART_TX(I),
         UART_RX_BUSY           => UART_RX_BUSY_i(TOTAL_CHANNELS*I + TOTAL_CHANNELS-1 downto TOTAL_CHANNELS*I ),
         UART_TX_BUSY           => UART_TX_BUSY_i(TOTAL_CHANNELS*I + TOTAL_CHANNELS-1 downto TOTAL_CHANNELS*I ),
-        TILE_EN                => TILE_EN(I),
+        TILE_EN                => TILE_EN(TOTAL_TILES -1 - I),
         MOSI                   => MOSI(TOTAL_CHANNELS*I + TOTAL_CHANNELS-1 downto TOTAL_CHANNELS*I ),
         MOSI_loopback          => MOSI_loopback(TOTAL_CHANNELS*I + TOTAL_CHANNELS-1 downto TOTAL_CHANNELS*I )
         );
